@@ -14,8 +14,8 @@
             		<a href="javascript:void(0)" class="dropbtn">Cadastro</a>
             		<div class="dropdown-content">
                   <a href="views/GestaoDeProjetos.php">Novo projeto</a>
-                  <a href="#">Novo template</a>
-                  <a href="#">Novo item</a>
+                  <a href="views/GestaoDeTemplates.php">Novo template</a>
+                  <a href="views/GestaoDeItens.php">Novo item</a>
                 </div>
             </li>
             <li class="dropdown">

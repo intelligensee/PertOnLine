@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gestão de Projetos</title>
+	<title>Gestão de Templates</title>
 	<!-- Estilos -->
 	<link rel="stylesheet" type="text/css" href="../styles/geral.css">
         <link rel="stylesheet" type="text/css" href="../styles/menu.css">
@@ -11,15 +11,15 @@
     <body>
     	<?php include "../menu.php";?>
     	<div class="conteudo">
-    		<h3 align="center">Gestão de projeto</h3>
+    		<h3 align="center">Gestão de Templates</h3>
     		<form>
     			<table class="estruturaFormulario">
         			<tr>
         				<td class="nomeDosCampos">
-        					<label>Nome do projeto</label>
+        					<label>Nome do Template</label>
         				</td>
         				<td colspan="3">
-        					<input type="text" name="GPTxtNomeDoProjeto" id="GPTxtNomeDoProjeto">
+        					<input type="text" name="GTTxtNomeDoTemplate" id="GTTxtNomeDoTemplate">
         				</td>
         			</tr>
         			<tr>
@@ -27,7 +27,7 @@
         					<label>Descrição</label>
         				</td>
         				<td colspan="3">
-        					<textarea rows="5" cols="30" name="GPTxtDescricaoDoProjeto" id="GPTxtDescricaoDoProjeto"></textarea>
+        					<textarea rows="5" cols="30" name="GTTxtDescricaoDoTemplate" id="GTTxtDescricaoDoTemplate"></textarea>
         				</td>
         			</tr>
         			<tr>
@@ -35,39 +35,17 @@
         					<label>Cliente</label>
         				</td>
         				<td>
-        					<select name="GPTxtCliente" id="GPTxtCliente">
-                                <option value="1">Petrobras</option>
-                                <option value="2">Raízen</option>
-                                <option value="3">Rumo</option>
-                            </select>
-        				</td>
-        				<td class="nomeDosCampos">
-        					<label>Nível do Solicitante</label>
-        				</td>
-        				<td>
-        					<select name="GPTxtNivelDoSolicitante" id="GPTxtCliente">
-                                <option value="1">Coordenador</option>
-                                <option value="2">Gerente Funcional</option>
-                                <option value="3">Gerente Executivo</option>
-                            </select>
-        				</td>
-        			</tr>
-        			<tr>
-        				<td class="nomeDosCampos">
-        					<label>Desvios Padrão</label>
-        				</td>
-        				<td>
-        					<select name="GPTxtDesviosPadrao" id="GPTxtDesviosPadrao">
-                                <option value="1">2</option>
-                                <option value="2">1</option>
-                                <option value="3">0</option>
-                            </select>
-        				</td>
+                                            <select name="GTTxtCliente" id="GTTxtCliente">
+                                                <option value="1">Petrobras</option>
+                                                <option value="2">Raízen</option>
+                                                <option value="3">Rumo</option>
+                                            </select>
+                                        </td>
         				<td class="nomeDosCampos">
         					<label>Data da criação</label>
         				</td>
         				<td>
-        					<input type="text" name="GPTxtDataDeCriacaoDoProjeto" id="GPTxtDataDeCriacaoDoProjeto" value="04/02/2019">
+                                            <input type="text" name="GTTxtDataDaCriacaoDoTemplate" id="GTTxtDataDaCriacaoDoTemplate" value="04/02/2019">
         				</td>
         			</tr>
     				<tr>
@@ -78,7 +56,7 @@
     						<input class="botoes" type="button" value="Adicionar item" onclick="#">
     					</td>
     					<td>
-    						<input class="botoes" type="button" value="Limpar estimativa" onclick="#">
+    						<input class="botoes" type="button" value="Limpar template" onclick="#">
     					</td>
     					<td>
     						<input class="botoes" type="button" value="Salvar" onclick="#">
@@ -111,11 +89,11 @@
     			<label>
     				Total do CAPEX
     			</label>
-    			<input type="text" name="GPTxtTotalDoCAPEX" id="GPTxtTotalDoCAPEX">
+    			<input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
     			<label>
     				Total do OPEX
     			</label>
-    			<input type="text" name="GPTxtTotalDoCAPEX" id="GPTxtTotalDoCAPEX">
+    			<input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
     		</form>
 
         </div>

@@ -9,6 +9,7 @@ input, textarea, select{
 }
 
 input, select, textarea{
+        font-size: 14px;
 	border-radius: 10px;
 	border: 1px solid #d5d5d5;
 	background-color: #fafafa;
