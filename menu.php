@@ -9,20 +9,20 @@
     <body>
     		<div class="navbar">
         <ul>
-          <li><a href="../index.php">PERT Online</a></li>
+          <li><a href="http://localhost:8888/PertOnLine/index.php">PERT Online</a></li>
             <li class="dropdown">
             		<a href="javascript:void(0)" class="dropbtn">Cadastro</a>
             		<div class="dropdown-content">
-                  <a href="views/GestaoDeProjetos.php">Novo projeto</a>
-                  <a href="views/GestaoDeTemplates.php">Novo template</a>
-                  <a href="views/GestaoDeItens.php">Novo item</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeProjetos.php">Novo projeto</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeTemplates.php">Novo template</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeItens.php">Novo item</a>
                 </div>
             </li>
             <li class="dropdown">
             		<a href="javascript:void(0)" class="dropbtn">Configuração</a>
             		<div class="dropdown-content">
-                  <a href="#">Gestão de Empresas</a>
-                  <a href="#">Gestão de Solicitante</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeEmpresas.php">Gestão de Empresas</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeSolicitantes.php">Gestão de Solicitante</a>
                   <a href="#">Gestão de Equipes</a>
                   <a href="#">Gestão de Projetos</a>
                   <a href="#">Gestão de Templates</a>
