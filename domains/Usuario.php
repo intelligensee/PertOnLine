@@ -1,9 +1,9 @@
 <?php
 
-class Usuario {
+require_once 'Identificacao.php';
 
-    private $id;
-    private $nome;
+class Usuario extends Identificacao{
+
     private $senha;
 
     function getId() {

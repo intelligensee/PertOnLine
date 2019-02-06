@@ -2,6 +2,7 @@
 
 require_once './interfaces/IFachada.php';
 require_once './daos/UsuarioDAO.php';
+require_once './daos/ClienteDAO.php';
 
 class fachada implements IFachada {
 
@@ -15,7 +16,7 @@ class fachada implements IFachada {
 
         //Mapa de comandos do objeto Usuario
         $mapUsuario["CREATE"] = $usuarioCreate;
-
+        
         //Mapa Geral de Objetos
         $this->mapObject[get_class(new Usuario())] = $mapUsuario;
     }
@@ -63,6 +64,7 @@ class fachada implements IFachada {
 
     private function instanceDAO($object) {
         $mapDAO[get_class(new Usuario())] = new UsuarioDAO();
+        $mapDAO[get_class(new Cliente())] = new ClienteDAO();
 
         return $mapDAO[get_class($object)];
     }
