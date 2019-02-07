@@ -6,27 +6,11 @@ class Usuario extends Identificacao{
 
     private $senha;
 
-    function getId() {
-        return $this->id;
-    }
-
-    function getNome() {
-        return $this->nome;
-    }
-
-    function getSenha() {
+    function getSenha() : string {
         return $this->senha;
     }
 
-    function setId($id) {
-        $this->id = $id;
-    }
-
-    function setNome($nome) {
-        $this->nome = $nome;
-    }
-
-    function setSenha($senha) {
+    function setSenha(string $senha) {
         $this->senha = $senha;
     }
 

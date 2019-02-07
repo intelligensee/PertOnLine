@@ -8,43 +8,43 @@ abstract class Identificacao {
     private $criadoEm;
     private $modificadoEm;
 
-    function getId() {
+    function getId(): int {
         return $this->id;
     }
 
-    function getNome() {
+    function getNome(): string {
         return $this->nome;
     }
 
-    function getDescricao() {
+    function getDescricao(): string {
         return $this->descricao;
     }
 
-    function getCriadoEm() {
+    function getCriadoEm(): DateTime {
         return $this->criadoEm;
     }
 
-    function getModificadoEm() {
+    function getModificadoEm(): DateTime {
         return $this->modificadoEm;
     }
 
-    function setId($id) {
+    function setId(int $id) {
         $this->id = $id;
     }
 
-    function setNome($nome) {
+    function setNome(string $nome) {
         $this->nome = $nome;
     }
 
-    function setDescricao($descricao) {
+    function setDescricao(string $descricao) {
         $this->descricao = $descricao;
     }
 
-    function setCriadoEm($criadoEm) {
+    function setCriadoEm(DateTime $criadoEm) {
         $this->criadoEm = $criadoEm;
     }
 
-    function setModificadoEm($modificadoEm) {
+    function setModificadoEm(DateTime $modificadoEm) {
         $this->modificadoEm = $modificadoEm;
     }
 
