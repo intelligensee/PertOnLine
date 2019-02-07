@@ -1,8 +1,8 @@
 <?php
 
-require_once './interfaces/IDAO.php';
-require_once './util/ConnectionFactory.php';
-require_once './domains/Usuario.php';
+require_once '../interfaces/IDAO.php';
+require_once '../util/ConnectionFactory.php';
+require_once '../domains/Usuario.php';
 
 class UsuarioDAO implements IDAO {
 

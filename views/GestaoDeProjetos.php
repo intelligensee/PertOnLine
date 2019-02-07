@@ -9,6 +9,14 @@
 
     </head>
     <body>
+        <?php
+        require_once '../controllers/Controller.php';
+        require_once '../domains/Cliente.php';
+        require_once '../domains/Solicitante.php';
+        $control = new Controller();
+        $cliente = new Cliente();
+        $solicitante = new Solicitante();
+        ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
             <h3 align="center">Gestão de projeto</h3>
@@ -36,9 +44,17 @@
                         </td>
                         <td>
                             <select name="GPTxtCliente" id="GPTxtCliente">
-                                <option value="1">Petrobras</option>
-                                <option value="2">Raízen</option>
-                                <option value="3">Rumo</option>
+                                <?php
+                                $read = $control->process("READ", new Cliente());
+                                foreach ($read[1] as $obj) {
+                                    $c = new Cliente();
+                                    $c = $obj;
+                                    echo '<option value = ' . $c->getId() . '>' . $c->getNome() . '</option>';
+                                }
+                                //<option value="1">Petrobras</option>
+                                //<option value="2">Raízen</option>
+                                //<option value="3">Rumo</option>
+                                ?>
                             </select>
                         </td>
                         <td class="nomeDosCampos">
@@ -46,9 +62,17 @@
                         </td>
                         <td>
                             <select name="GPTxtNivelDoSolicitante" id="GPTxtCliente">
-                                <option value="1">Coordenador</option>
-                                <option value="2">Gerente Funcional</option>
-                                <option value="3">Gerente Executivo</option>
+                                <?php
+                                $read = $control->process("READ", new Solicitante());
+                                foreach ($read[1] as $obj) {
+                                    $s = new Solicitante();
+                                    $s = $obj;
+                                    echo '<option value = ' . $s->getId() . '>' . $s->getNivel() . '</option>';
+                                }
+                                //<option value="1">Coordenador</option>
+                                //<option value="2">Gerente Funcional</option>
+                                //<option value="3">Gerente Executivo</option>
+                                ?>
                             </select>
                         </td>
                     </tr>

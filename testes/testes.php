@@ -11,8 +11,8 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        require_once './controllers/Controller.php';
-        require_once './domains/Cliente.php';
+        require_once '../controllers/Controller.php';
+        require_once '../domains/Cliente.php';
         $control = new Controller();
         $read = $control->process("READ", new Cliente());
         ?>

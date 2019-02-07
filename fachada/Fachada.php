@@ -1,8 +1,9 @@
 <?php
 
-require_once './interfaces/IFachada.php';
-require_once './daos/UsuarioDAO.php';
-require_once './daos/ClienteDAO.php';
+require_once '../interfaces/IFachada.php';
+require_once '../daos/UsuarioDAO.php';
+require_once '../daos/ClienteDAO.php';
+require_once '../daos/SolicitanteDAO.php';
 
 class fachada implements IFachada {
 
@@ -65,6 +66,7 @@ class fachada implements IFachada {
     private function instanceDAO($object) {
         $mapDAO[get_class(new Usuario())] = new UsuarioDAO();
         $mapDAO[get_class(new Cliente())] = new ClienteDAO();
+        $mapDAO[get_class(new Solicitante())] = new SolicitanteDAO();
 
         return $mapDAO[get_class($object)];
     }

@@ -1,10 +1,10 @@
 <?php
 
-require_once './commands/Command.php';
-require_once './commands/CreateCommand.php';
-require_once './commands/ReadCommand.php';
-require_once './commands/UpDateCommand.php';
-require_once './commands/DeleteCommand.php';
+require_once '../commands/Command.php';
+require_once '../commands/CreateCommand.php';
+require_once '../commands/ReadCommand.php';
+require_once '../commands/UpDateCommand.php';
+require_once '../commands/DeleteCommand.php';
 
 class Controller {
 
