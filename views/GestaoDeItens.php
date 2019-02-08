@@ -9,6 +9,18 @@
 
     </head>
     <body>
+        <?php
+        require_once '../controllers/Controller.php';
+        require_once '../domains/Moeda.php';
+        require_once '../domains/Categoria.php';
+        require_once '../domains/Subcategoria.php';
+        require_once '../domains/Pagamento.php';
+        $control = new Controller();
+        $moeda = new Moeda();
+        $categoria = new Categoria();
+        $subcategoria = new Subcategoria();
+        $pagamento = new Pagamento();
+        ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
             <h3 align="center">Gestão de Itens</h3>
@@ -80,8 +92,16 @@
                         </td>
                         <td>
                             <select name="GITxtMoedas" id="GITxtMoedas">
-                                <option value="1">(R$) Reais</option>
-                                <option value="2">(U$) Dólar</option>
+                                <?php
+                                $read = $control->process("READ", new Moeda());
+                                foreach ($read[1] as $obj) {
+                                    $m = new Moeda();
+                                    $m = $obj;
+                                    echo '<option value = ' . $m->getId() . '>(' . $m->getSimbolo() . ') ' . $m->getNome() . '</option>';
+                                }
+                                //<option value="1">(R$) Reais</option>
+                                //<option value="2">(U$) Dólar</option>
+                                ?>
                             </select>
                         </td>
                         <td class="nomeDosCampos">
@@ -103,8 +123,16 @@
                         </td>
                         <td>
                             <select name="GITxtCategoria" id="GITxtCategoria">
-                                <option value="1">CAPEX</option>
-                                <option value="2">OPEX</option>
+                                <?php
+                                $read = $control->process("READ", new Categoria());
+                                foreach ($read[1] as $obj) {
+                                    $cat = new Categoria();
+                                    $cat = $obj;
+                                    echo '<option value = ' . $cat->getId() . '> ' . $cat->getNome() . '</option>';
+                                }
+                                //<option value="1">CAPEX</option>
+                                //<option value="2">OPEX</option>
+                                ?>
                             </select>
                         </td>
                         <td class="nomeDosCampos">
@@ -112,8 +140,16 @@
                         </td>
                         <td>
                             <select name="GITxtSubcategoria" id="GITxtSubcategoria">
-                                <option value="1">Mão de Obra</option>
-                                <option value="2">Viagens</option>
+                                <?php
+                                $read = $control->process("READ", new Subcategoria());
+                                foreach ($read[1] as $obj) {
+                                    $scat = new Subcategoria();
+                                    $scat = $obj;
+                                    echo '<option value = ' . $scat->getId() . '> ' . $scat->getNome() . '</option>';
+                                }
+                                //<option value="1">Mão de Obra</option>
+                                //<option value="2">Viagens</option>
+                                ?>
                             </select>
                         </td>
                         <td class="nomeDosCampos">
@@ -121,8 +157,16 @@
                         </td>
                         <td>
                             <select name="GITxtPagamento" id="GITxtPagamento">
-                                <option value="1">Mensal</option>
-                                <option value="2">Anual</option>
+                                <?php
+                                $read = $control->process("READ", new Pagamento());
+                                foreach ($read[1] as $obj) {
+                                    $p = new Subcategoria();
+                                    $p = $obj;
+                                    echo '<option value = ' . $p->getId() . '> ' . $p->getNome() . '</option>';
+                                }
+                                //<option value="1">Mensal</option>
+                                //<option value="2">Anual</option>
+                                ?>
                             </select>
                         </td>
                     </tr>

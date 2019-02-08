@@ -4,6 +4,10 @@ require_once '../interfaces/IFachada.php';
 require_once '../daos/UsuarioDAO.php';
 require_once '../daos/ClienteDAO.php';
 require_once '../daos/SolicitanteDAO.php';
+require_once '../daos/MoedaDAO.php';
+require_once '../daos/CategoriaDAO.php';
+require_once '../daos/SubCategoriaDAO.php';
+require_once '../daos/PagamentoDAO.php';
 
 class fachada implements IFachada {
 
@@ -67,6 +71,10 @@ class fachada implements IFachada {
         $mapDAO[get_class(new Usuario())] = new UsuarioDAO();
         $mapDAO[get_class(new Cliente())] = new ClienteDAO();
         $mapDAO[get_class(new Solicitante())] = new SolicitanteDAO();
+        $mapDAO[get_class(new Moeda())] = new MoedaDAO();
+        $mapDAO[get_class(new Categoria())] = new CategoriaDAO();
+        $mapDAO[get_class(new Subcategoria())] = new SubCategoriaDAO();
+        $mapDAO[get_class(new Pagamento())] = new PagamentoDAO();
 
         return $mapDAO[get_class($object)];
     }

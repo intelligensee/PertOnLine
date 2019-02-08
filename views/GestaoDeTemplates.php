@@ -9,6 +9,12 @@
 
     </head>
     <body>
+        <?php
+        require_once '../controllers/Controller.php';
+        require_once '../domains/Cliente.php';
+        $control = new Controller();
+        $cliente = new Cliente();
+        ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
             <h3 align="center">Gestão de Templates</h3>
@@ -36,9 +42,17 @@
                         </td>
                         <td>
                             <select name="GTTxtCliente" id="GTTxtCliente">
-                                <option value="1">Petrobras</option>
-                                <option value="2">Raízen</option>
-                                <option value="3">Rumo</option>
+                                <?php
+                                $read = $control->process("READ", new Cliente());
+                                foreach ($read[1] as $obj) {
+                                    $c = new Cliente();
+                                    $c = $obj;
+                                    echo '<option value = ' . $c->getId() . '>' . $c->getNome() . '</option>';
+                                }
+                                //<option value="1">Petrobras</option>
+                                //<option value="2">Raízen</option>
+                                //<option value="3">Rumo</option>
+                                ?>
                             </select>
                         </td>
                         <td class="nomeDosCampos">
