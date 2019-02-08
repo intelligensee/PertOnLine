@@ -9,7 +9,7 @@ class ClienteDAO implements IDAO {
     private $conn;
 
     function __construct() {
-        $this->conn = ConnectionFactory::getMySQLConnection();
+        //$this->conn = ConnectionFactory::getMySQLConnection();
     }
 
     public function create($object) {

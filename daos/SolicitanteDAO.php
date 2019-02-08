@@ -7,7 +7,7 @@ require_once '../domains/Solicitante.php';
 class SolicitanteDAO implements IDAO {
 
     function __construct() {
-        $this->conn = ConnectionFactory::getMySQLConnection();
+        //$this->conn = ConnectionFactory::getMySQLConnection();
     }
 
     public function create($object) {
