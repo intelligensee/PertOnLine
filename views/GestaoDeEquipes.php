@@ -39,35 +39,35 @@
                         </td>                       
                     </tr>
                 </table>
-                <table class="gestao">
-                    <br />
-                    <br />
-                    <label>Equipes cadastradas</label>
-                    <br />
-                    <br />
-                    <th>Gestão</th><th>Nome da equipe</th><th>Descrição</th><th>Criado por</th><th>Criado em</th><th>Modificado por</th><th>Modificado em</th><th>Opção</th>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Gestão de Projetos</td>
-                        <td class="colunaGestao">Responsável por gerenciar projetos</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Ativo</td>
-                    </tr>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Arquitetura</td>
-                        <td class="colunaGestao">Responsável por estabelecer os padrões das tecnologias</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Ativo</td>
-                    </tr>
-                </table>	
             </form>
+            <table class="gestao">
+                <br />
+                <br />
+                <label>Equipes cadastradas</label>
+                <br />
+                <br />
+                <th>Gestão</th><th>Nome da equipe</th><th>Descrição</th><th>Criado por</th><th>Criado em</th><th>Modificado por</th><th>Modificado em</th><th>Opção</th>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Gestão de Projetos</td>
+                    <td class="colunaGestao">Responsável por gerenciar projetos</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Ativo</td>
+                </tr>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Arquitetura</td>
+                    <td class="colunaGestao">Responsável por estabelecer os padrões das tecnologias</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Ativo</td>
+                </tr>
+            </table>	
         </div>
     </body>
 </html>

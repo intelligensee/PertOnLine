@@ -66,15 +66,15 @@
                         </td>                       
                     </tr>
                 </table>
-                <table class="gestao">
-                    <br />
-                    <br />
-                    <label>Clientes cadastrados</label>
-                    <br />
-                    <br />
-                    <th>Gestão</th><th>Cliente</th><th>Email</th><th>Confirmar email</th><th>Email do backup</th><th>Confirmar email do backup</th><th>Opção</th>                    
-                </table>	
             </form>
+            <table class="gestao">
+                <br />
+                <br />
+                <label>Clientes cadastrados</label>
+                <br />
+                <br />
+                <th>Gestão</th><th>Cliente</th><th>Email</th><th>Confirmar email</th><th>Email do backup</th><th>Confirmar email do backup</th><th>Opção</th>                    
+            </table>
         </div>
     </body>
 </html>

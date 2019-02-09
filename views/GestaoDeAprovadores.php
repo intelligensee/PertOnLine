@@ -56,37 +56,37 @@
                         </td>                       
                     </tr>
                 </table>
-                <table class="gestao">
-                    <br />
-                    <br />
-                    <label>Aprovadores cadastrados</label>
-                    <br />
-                    <br />
-                    <th>Gestão</th><th>Descrição</th><th>Mínimo</th><th>Máximo</th><th>Email do aprovador</th><th>Email do backup</th><th>Criado por</th><th>Criado em</th><th>Opção</th>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Aprovação do Especialista</td>
-                        <td class="colunaGestao">R$ 0,00</td>
-                        <td class="colunaGestao">R$ 50.000,00</td>
-                        <td class="colunaGestao">especialista@email.com</td>
-                        <td class="colunaGestao">backupDoespecialista@email.com</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">09/02/2019</td>
-                        <td class="colunaGestao">Ativo</td>
-                    </tr>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Aprovação do Especialista</td>
-                        <td class="colunaGestao">R$ 50.000,00</td>
-                        <td class="colunaGestao">R$ 100.000,00</td>
-                        <td class="colunaGestao">especialista@email.com</td>
-                        <td class="colunaGestao">backupDoespecialista@email.com</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">09/02/2019</td>
-                        <td class="colunaGestao">Ativo</td>
-                    </tr>
-                </table>	
             </form>
+            <table class="gestao">
+                <br />
+                <br />
+                <label>Aprovadores cadastrados</label>
+                <br />
+                <br />
+                <th>Gestão</th><th>Descrição</th><th>Mínimo</th><th>Máximo</th><th>Email do aprovador</th><th>Email do backup</th><th>Criado por</th><th>Criado em</th><th>Opção</th>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Aprovação do Especialista</td>
+                    <td class="colunaGestao">R$ 0,00</td>
+                    <td class="colunaGestao">R$ 50.000,00</td>
+                    <td class="colunaGestao">especialista@email.com</td>
+                    <td class="colunaGestao">backupDoespecialista@email.com</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">09/02/2019</td>
+                    <td class="colunaGestao">Ativo</td>
+                </tr>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Aprovação do Especialista</td>
+                    <td class="colunaGestao">R$ 50.000,00</td>
+                    <td class="colunaGestao">R$ 100.000,00</td>
+                    <td class="colunaGestao">especialista@email.com</td>
+                    <td class="colunaGestao">backupDoespecialista@email.com</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">09/02/2019</td>
+                    <td class="colunaGestao">Ativo</td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>

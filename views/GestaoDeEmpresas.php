@@ -46,35 +46,35 @@
                         </td>                       
                     </tr>
                 </table>
-                <table class="gestao">                    
-                    <br />
-                    <br />
-                    <label>Clientes cadastrados</label>
-                    <br />
-                    <br />
-                    <th>Gestão</th><th>Nome do cliente</th><th>Descrição</th><th>Criado por</th><th>Criado em</th><th>Modificado por</th><th>Modificado em</th><th>Opção</th>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Petrobras</td>
-                        <td class="colunaGestao">Empresa nacional de Petróleo</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Ativo</td>
-                    </tr>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Raízen</td>
-                        <td class="colunaGestao">Empresa sucroalcoleira</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                        <td class="colunaGestao">05/02/2019</td>
-                        <td class="colunaGestao">Ativo</td>
-                    </tr>
-                </table>	
             </form>
+            <table class="gestao">                    
+                <br />
+                <br />
+                <label>Clientes cadastrados</label>
+                <br />
+                <br />
+                <th>Gestão</th><th>Nome do cliente</th><th>Descrição</th><th>Criado por</th><th>Criado em</th><th>Modificado por</th><th>Modificado em</th><th>Opção</th>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Petrobras</td>
+                    <td class="colunaGestao">Empresa nacional de Petróleo</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Ativo</td>
+                </tr>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Raízen</td>
+                    <td class="colunaGestao">Empresa sucroalcoleira</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                    <td class="colunaGestao">05/02/2019</td>
+                    <td class="colunaGestao">Ativo</td>
+                </tr>
+            </table>
         </div>
     </body>
 </html>

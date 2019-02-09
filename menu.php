@@ -23,15 +23,15 @@
             		<div class="dropdown-content">
                   <a href="http://localhost:8888/PertOnLine/views/GestaoDeEmpresas.php">Gestão de Empresas</a>
                   <a href="http://localhost:8888/PertOnLine/views/GestaoDeSolicitantes.php">Gestão de Solicitante</a>
-                  <a href="#">Gestão de Equipes</a>
-                  <a href="#">Gestão de Projetos</a>
-                  <a href="#">Gestão de Templates</a>
-                  <a href="#">Gestão de Itens</a>
-                  <a href="#">Gestão de Aprovadores</a>
-                  <a href="#">Gestão de Clientes</a>
-                  <a href="#">Gestão de Acessos</a>
-                  <a href="#">Gestão de Marcas</a>
-                  <a href="#">Registro de Aprovações</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeEquipes.php">Gestão de Equipes</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeProjetos.php">Gestão de Projetos</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeTemplates.php">Gestão de Templates</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeItens.php">Gestão de Itens</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeAprovadores.php">Gestão de Aprovadores</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeClientes.php">Gestão de Clientes</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeAcessos.php">Gestão de Acessos</a>
+                  <a href="http://localhost:8888/PertOnLine/views/GestaoDeMarcas.php">Gestão de Marcas</a>
+                  <a href="http://localhost:8888/PertOnLine/views/RegistroDeAprovacoes.php">Registro de Aprovações</a>
                 </div>
             </li>
             <li style="float:right"><a class="active" href="#about">Login</a></li>

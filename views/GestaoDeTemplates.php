@@ -77,38 +77,38 @@
                         </td>
                     </tr>
                 </table>
-                <table class="gestao">
-                    <th>Opção</th><th>Template</th><th>Categoria</th><th>Subcategoria</th><th>Nome dos itens</th><th>Equipe</th><th>Custos</th>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                        <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
-                        <td class="colunaGestao">OPEX</td>
-                        <td class="colunaGestao">Serviços</td>
-                        <td class="colunaGestao">Nome dos itens</td>
-                        <td class="colunaGestao">Fornecedores Externos</td>
-                        <td class="colunaGestao">R$ 100,00</td>
-                    </tr>
-                    <tr class="linhaGestao">
-                        <td class="colunaGestao">Exibir | Editar | Excluir</td>
-                        <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
-                        <td class="colunaGestao">OPEX</td>
-                        <td class="colunaGestao">Serviços</td>
-                        <td class="colunaGestao">Nome dos itens</td>
-                        <td class="colunaGestao">Fornecedores Externos</td>
-                        <td class="colunaGestao">R$ 100,00</td>
-                    </tr>
-                </table>	
-                <br />
-                <br />
-                <label>
-                    Total do CAPEX
-                </label>
-                <input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
-                <label>
-                    Total do OPEX
-                </label>
-                <input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
             </form>
+            <table class="gestao">
+                <th>Opção</th><th>Template</th><th>Categoria</th><th>Subcategoria</th><th>Nome dos itens</th><th>Equipe</th><th>Custos</th>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                    <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
+                    <td class="colunaGestao">OPEX</td>
+                    <td class="colunaGestao">Serviços</td>
+                    <td class="colunaGestao">Nome dos itens</td>
+                    <td class="colunaGestao">Fornecedores Externos</td>
+                    <td class="colunaGestao">R$ 100,00</td>
+                </tr>
+                <tr class="linhaGestao">
+                    <td class="colunaGestao">Exibir | Editar | Excluir</td>
+                    <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
+                    <td class="colunaGestao">OPEX</td>
+                    <td class="colunaGestao">Serviços</td>
+                    <td class="colunaGestao">Nome dos itens</td>
+                    <td class="colunaGestao">Fornecedores Externos</td>
+                    <td class="colunaGestao">R$ 100,00</td>
+                </tr>
+            </table>	
+            <br />
+            <br />
+            <label>
+                Total do CAPEX
+            </label>
+            <input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
+            <label>
+                Total do OPEX
+            </label>
+            <input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
         </div>
     </body>
 </html>
