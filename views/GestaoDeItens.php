@@ -23,7 +23,7 @@
         ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
-            <h3 align="center">Gestão de Itens</h3>
+            <h3>Gestão de Itens</h3>
             <form>
                 <table class="estruturaFormulario">
                     <tr>
@@ -186,7 +186,6 @@
                     </tr>
                 </table>
             </form>
-
         </div>
     </body>
 </html>

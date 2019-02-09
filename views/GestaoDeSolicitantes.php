@@ -11,7 +11,7 @@
     <body>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
-            <h3 align="center">Gestão de Solicitantes</h3>
+            <h3>Gestão de Solicitantes</h3>
             <form>
                 <table class="estruturaFormulario">
                     <tr>
@@ -37,37 +37,36 @@
                         <td>
                             <input class="botoes" type="button" value="Salvar" onclick="#">                            
                         </td>                       
-                    </tr>                    
-                    <table align="center" class="gestao">
-                        <br />
-                        <br />
-                        <br />
-                        <label>Solicitantes cadastrados</label>
-                        <br />
-                        <br />
-                        <th>Gestão</th><th>Nome do solicitante</th><th>Descrição</th><th>Criado por</th><th>Criado em</th><th>Modificado por</th><th>Modificado em</th><th>Opção</th>
-                        <tr class="linhaGestao">
-                            <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                            <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                            <td class="colunaGestao">Responsável por solicitar projetos</td>
-                            <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                            <td class="colunaGestao">05/02/2019</td>
-                            <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                            <td class="colunaGestao">05/02/2019</td>
-                            <td class="colunaGestao">Ativo</td>
-                        </tr>
-                        <tr class="linhaGestao">
-                            <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                            <td class="colunaGestao">Ronaldo dos Santos Pinheiro</td>
-                            <td class="colunaGestao">Responsável por desenvolver o sistema da PERT Online</td>
-                            <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                            <td class="colunaGestao">05/02/2019</td>
-                            <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
-                            <td class="colunaGestao">05/02/2019</td>
-                            <td class="colunaGestao">Ativo</td>
-                        </tr>
-                    </table>	
+                    </tr>
                 </table>
+                <table class="gestao">
+                    <br />
+                    <br />
+                    <label>Solicitantes cadastrados</label>
+                    <br />
+                    <br />
+                    <th>Gestão</th><th>Nome do solicitante</th><th>Descrição</th><th>Criado por</th><th>Criado em</th><th>Modificado por</th><th>Modificado em</th><th>Opção</th>
+                    <tr class="linhaGestao">
+                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                        <td class="colunaGestao">Responsável por solicitar projetos</td>
+                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                        <td class="colunaGestao">05/02/2019</td>
+                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                        <td class="colunaGestao">05/02/2019</td>
+                        <td class="colunaGestao">Ativo</td>
+                    </tr>
+                    <tr class="linhaGestao">
+                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                        <td class="colunaGestao">Ronaldo dos Santos Pinheiro</td>
+                        <td class="colunaGestao">Responsável por desenvolver o sistema da PERT Online</td>
+                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                        <td class="colunaGestao">05/02/2019</td>
+                        <td class="colunaGestao">Danilo Brayan Souza Taborda</td>
+                        <td class="colunaGestao">05/02/2019</td>
+                        <td class="colunaGestao">Ativo</td>
+                    </tr>
+                </table>	
             </form>
         </div>
     </body>

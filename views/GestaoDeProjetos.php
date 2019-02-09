@@ -19,7 +19,7 @@
         ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
-            <h3 align="center">Gestão de projeto</h3>
+            <h3>Gestão de projeto</h3>
             <form>
                 <table class="estruturaFormulario">
                     <tr>
@@ -108,28 +108,28 @@
                             <input class="botoes" type="button" value="Salvar" onclick="#">
                         </td>
                     </tr>
-                    <table align="center" class="gestao">
-                        <th>Opção</th><th>Template</th><th>Categoria</th><th>Subcategoria</th><th>Nome dos itens</th><th>Equipe</th><th>Custos</th>
-                        <tr class="linhaGestao">
-                            <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
-                            <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
-                            <td class="colunaGestao">OPEX</td>
-                            <td class="colunaGestao">Serviços</td>
-                            <td class="colunaGestao">Nome dos itens</td>
-                            <td class="colunaGestao">Fornecedores Externos</td>
-                            <td class="colunaGestao">R$ 100,00</td>
-                        </tr>
-                        <tr class="linhaGestao">
-                            <td class="colunaGestao">Exibir | Editar | Excluir</td>
-                            <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
-                            <td class="colunaGestao">OPEX</td>
-                            <td class="colunaGestao">Serviços</td>
-                            <td class="colunaGestao">Nome dos itens</td>
-                            <td class="colunaGestao">Fornecedores Externos</td>
-                            <td class="colunaGestao">R$ 100,00</td>
-                        </tr>
-                    </table>	
                 </table>
+                <table class="gestao">
+                    <th>Opção</th><th>Template</th><th>Categoria</th><th>Subcategoria</th><th>Nome dos itens</th><th>Equipe</th><th>Custos</th>
+                    <tr class="linhaGestao">
+                        <td class="colunaGestao">Exibir | Editar | Excluir</td>    					
+                        <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
+                        <td class="colunaGestao">OPEX</td>
+                        <td class="colunaGestao">Serviços</td>
+                        <td class="colunaGestao">Nome dos itens</td>
+                        <td class="colunaGestao">Fornecedores Externos</td>
+                        <td class="colunaGestao">R$ 100,00</td>
+                    </tr>
+                    <tr class="linhaGestao">
+                        <td class="colunaGestao">Exibir | Editar | Excluir</td>
+                        <td class="colunaGestao">Ambiente de desenvolvimento na Cloud</td>
+                        <td class="colunaGestao">OPEX</td>
+                        <td class="colunaGestao">Serviços</td>
+                        <td class="colunaGestao">Nome dos itens</td>
+                        <td class="colunaGestao">Fornecedores Externos</td>
+                        <td class="colunaGestao">R$ 100,00</td>
+                    </tr>
+                </table>	
                 <br />
                 <br />
                 <label>
@@ -141,7 +141,6 @@
                 </label>
                 <input type="text" name="GPTxtTotalDoCAPEX" id="GPTxtTotalDoCAPEX">
             </form>
-
         </div>
     </body>
 </html>
