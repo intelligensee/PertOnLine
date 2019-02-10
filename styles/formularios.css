@@ -1,0 +1,97 @@
+/* Para separar as secções da página */
+fieldset{
+    border-radius: 10px;
+    border: 2px solid #dcdcdc;
+    margin: 0px 0px 20px 0px;
+}
+
+/* Títulos das secções */
+.tituloSeccao{
+    padding: 5px;
+    color: #696969;
+    font-weight: bold;
+}
+
+/* Configura a proporção de todas as tabelas do sistema em 100% para ficar responsívo */
+table{
+    width: 100%;
+}
+
+/* Configura o estilo da tabela que exibe os itens cadastrados */
+th, .linhaGestao, .colunaGestao{
+    border: 1px solid #ddd;
+}
+
+/* alinha e define o tamanho da fonte do conteúdo dos itens cadastrados */
+.gestao td, .gestao th{
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Ao passar o mouse em cima de qualquer linha da tabela dos itens cadastrados, um efeito de cor é gerado */
+.gestao tr:hover{
+    background-color: #b3d7ff;
+}
+
+/* Intercalar cor nas linhas que forem sendo exibidas nos itens cadastrados */
+.linhaGestao:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+/* Cor do cabeçalho das tabelas */
+th{
+    background-color: #ddd;
+}
+
+/* Coloca espaçamento dentro das células das tabelas */
+td{
+    padding: 8px;
+}
+
+/* Icones de gestão (Ver, Editar e Excluir) */
+.icones{
+    width: 18px;
+    height: 18px;
+    margin: 0px 5px 0px 5px;
+}
+
+/* Efeito ao passar o mouse por cima dos icones de gestão (Ver, Editar e Excluir) */
+.icones:hover{
+    width: 22px;
+    height: 22px;
+}
+
+/* Configuração dos estilos e tamanho dos controles do formulário */
+input, select, textarea{
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid #d5d5d5;
+    background-color: #f2f2f2;
+    width: 100%;
+}
+
+/* Configuração dos estilos e tamanho dos botões que receberem essa classe */
+ .botoes{
+    background-color: #1E90FF;
+    color: #ffffff;
+    height: 50px;
+    width: 100%;
+ }
+ 
+ /* Efeito ao passar o mouse sobre os botões que receberem essa classe */
+ .botoes:hover {
+    background-color: #4169E1;
+    color: #ffffff;
+ }
+
+/* Define o tamanho dos controles, diferentes do text área que é dado pela quantidade de linhas */
+input, select{
+    height: 40px;
+}
+
+/* Classe que define o alinhamento e a cor dos labels que a recebem */
+.nomeDosCampos{
+    text-align: center;
+    color: #808080;
+
+}
