@@ -26,5 +26,6 @@
                 Logo, para se obter uma estimativa com 68,2% de assertividade, a seguinte fórmula é aplicada: PERT + 1x(Desvio Padrão). Caso seja necessário uma estimativa com 95,4% de assertividade, deve-se multiplicar o desvio padrão por 2 e com 99,6%, deve-se multiplicar por 3.
             </p>
         </div>
+        <?php include "rodape.php"; ?>
     </body>
 </html>

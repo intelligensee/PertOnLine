@@ -127,5 +127,6 @@
                 <input type="text" name="GTTxtTotalDoCAPEX" id="GTTxtTotalDoCAPEX">
             </fieldset>
         </div>
+        <?php include "../rodape.php"; ?>
     </body>
 </html>

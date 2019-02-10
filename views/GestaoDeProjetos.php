@@ -331,6 +331,7 @@
                 </div>
             </div>
         </div>
+        <?php include "../rodape.php"; ?>
         <script type="text/javascript" src="http://localhost:8888/PertOnline/styles/modal.js"></script>
     </body>
 </html>
