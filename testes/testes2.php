@@ -8,7 +8,7 @@
         <?php
         require_once '../controllers/Controller.php';
         $control = new Controller();
-        $control->process('CREATE', new Item());
+        $control->process('READ', new Item());
         ?>
     </body>
 </html>
