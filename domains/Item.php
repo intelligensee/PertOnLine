@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Identificacao.php';
+require_once '../domains/Moeda.php';
 
 class Item extends Identificacao {
 
@@ -34,7 +35,7 @@ class Item extends Identificacao {
         $o = $this->otimista;
         $m = $this->maisProvavel;
         $p = $this->pessimista;
-        $this->pert = $o + 4 * $m + $p;
+        $this->pert = ($o + 4 * $m + $p)/6;
         return $this->pert;
     }
 
@@ -55,6 +56,8 @@ class Item extends Identificacao {
 
     function getTotal(): float {
         $this->total = $this->getPert() + $this->getDesvio();
+        $cotacao = $this->getMoeda()->getCotacao();
+        $this->total = $this->total * $this->valorUnitario * $cotacao;
         return $this->total;
     }
 
