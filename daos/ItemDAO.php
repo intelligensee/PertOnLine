@@ -31,6 +31,7 @@ class ItemDAO implements IDAO {
         $m->setNome("Dólar");
         $m->setSimbolo("US$");
         $m->setCotacao(4);
+        $i->setId(1);
         $i->setNome("Máquina virtual");
         $i->setValorUnitario(100);
         $i->setOtimista(1);
@@ -56,6 +57,7 @@ class ItemDAO implements IDAO {
         $m->setNome("Real");
         $m->setSimbolo("R$");
         $m->setCotacao(1);
+        $i->setId(2);
         $i->setNome("Configuração de máquina virtual");
         $i->setValorUnitario(100);
         $i->setOtimista(1.5);

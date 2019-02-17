@@ -176,8 +176,16 @@
                             </td>
                             <td colspan="3">
                                 <select name="GITxtAssociarTemlate" id="GITxtAssociarTemlate">
-                                    <option value="1">Ambiente virtual windows</option>
-                                    <option value="2">Ambiente virtual linux </option>
+                                    <?php
+                                    $read = $control->process("READ", new Template());
+                                    foreach ($read[1] as $obj) {
+                                        $t = new Template();
+                                        $t = $obj;
+                                        echo '<option value = ' . $t->getId() . '> ' . $t->getNome() . '</option>';
+                                    }
+                                    //<option value="1">Ambiente virtual windows</option>
+                                    //<option value="2">Ambiente virtual linux </option>
+                                    ?>
                                 </select>
                             </td>
                             <td colspan="2">
@@ -244,12 +252,17 @@
             } else {
                 $flag = false;
             }
+            if (isset($_POST['GITxtAssociarTemlate']) && !empty($_POST['GITxtAssociarTemlate'])) {
+                $template = $_POST['GITxtAssociarTemlate'];
+            } else {
+                $flag = false;
+            }
             if ($flag) {
-
                 $m = new Moeda();
                 $c = new Categoria();
                 $s = new Subcategoria();
                 $p = new Pagamento();
+                $t = new Template();
                 $i = new Item();
                 $m->setId($moeda);
                 $c->setId($categoria);
@@ -297,7 +310,19 @@
                         echo '<td>' . $item->getCategoria()->getNome() . '</td>';
                         echo '<td>' . $item->getSubCategoria()->getNome() . '</td>';
                         echo '<td>' . $item->getPagamento()->getNome() . '</td>';
-                        echo '<td>Ambiente virtual windows</td>';
+                        $read = $control->process("READ", new Template());
+                        foreach ($read[1] as $obj) {
+                            $temp = new Template();
+                            $temp = $obj;
+                            foreach ($temp->getItens() as $objI) {
+                                $it = new Item();
+                                $it = $objI;
+                                if ($it->getId() === $item->getId()) {
+                                    echo '<td>' . $temp->getNome() . '</td>';
+                                    break;
+                                }
+                            }
+                        }
                         echo '</tr>';
                     }
                     ?>

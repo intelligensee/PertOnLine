@@ -8,7 +8,10 @@
         <?php
         require_once '../controllers/Controller.php';
         $control = new Controller();
-        $control->process('READ', new Item());
+        $read = $control->process('READ', new Template());
+        echo '<pre>';
+        print_r($read);
+        echo '</pre>';
         ?>
     </body>
 </html>

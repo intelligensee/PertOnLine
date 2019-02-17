@@ -9,6 +9,7 @@ require_once '../daos/CategoriaDAO.php';
 require_once '../daos/SubCategoriaDAO.php';
 require_once '../daos/PagamentoDAO.php';
 require_once '../daos/ItemDAO.php';
+require_once '../daos/TemplateDAO.php';
 
 class fachada implements IFachada {
 
@@ -50,7 +51,7 @@ class fachada implements IFachada {
     }
 
     private function executeRules($command, $object) {
-        //error_reporting(0); //não mostra erros para o usuário
+        error_reporting(0); //não mostra erros para o usuário
         try {//Verifica a existência de regras de negócio para o objeto em $object
             if (!$m = $this->mapObject[get_class($object)]) {
                 throw new Exception; //lança exceção se não houver
@@ -77,6 +78,7 @@ class fachada implements IFachada {
         $mapDAO[get_class(new Subcategoria())] = new SubCategoriaDAO();
         $mapDAO[get_class(new Pagamento())] = new PagamentoDAO();
         $mapDAO[get_class(new Item())] = new ItemDAO();
+        $mapDAO[get_class(new Template())] = new TemplateDAO();
 
         return $mapDAO[get_class($object)];
     }
