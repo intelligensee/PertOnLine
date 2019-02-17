@@ -80,9 +80,9 @@
                             </td>
                             <td>
                                 <select name="GITxtDesvios" id="GITxtDesvios">
-                                    <option value="1">2</option>
-                                    <option value="2">1</option>
-                                    <option value="3">0</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                    <option value="0">0</option>
                                 </select>
                             </td>
                         </tr>
@@ -278,9 +278,12 @@
                 $i->setMaisProvavel($maisProv);
                 $i->setPessimista($pessimista);
                 $i->setQtdDesvios($qtdDesvios);
+                $i->setValorUnitario($valor);
                 echo '<pre>';
                 print_r($i);
                 echo '</pre>';
+            } else {
+                echo'<h2>Todos os campos são obrigatórios!</h2>';
             }
             ?>
             <fieldset>
