@@ -279,9 +279,7 @@
                 $i->setPessimista($pessimista);
                 $i->setQtdDesvios($qtdDesvios);
                 $i->setValorUnitario($valor);
-                echo '<pre>';
-                print_r($i);
-                echo '</pre>';
+                $control->process("CREATE", $i);
             } else {
                 echo'<h2>Todos os campos são obrigatórios!</h2>';
             }
@@ -297,12 +295,12 @@
                     foreach ($readItens[1] as $obj) {
                         $item = new Item();
                         $item = $obj;
-                        echo '<tr class = "linhaGestao">';
-                        echo '<td>';
-                        echo '<a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro"></a>';
-                        echo '<a href = "#"><img class = "icones" src = "../images/icones/editar.png" alt = "Visualizar cadastro"></a>';
-                        echo '<a href = "#"><img class = "icones" src = "../images/icones/excluir.png" alt = "Visualizar cadastro"></a>';
-                        echo '</td>';
+                        echo '<tr class = "linhaGestao">
+                              <td>
+                              <a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro"></a>
+                              <a href = "#"><img class = "icones" src = "../images/icones/editar.png" alt = "Visualizar cadastro"></a>
+                              <a href = "#"><img class = "icones" src = "../images/icones/excluir.png" alt = "Visualizar cadastro"></a>
+                              </td>';
                         echo '<td>' . $item->getNome() . '</td>';
                         echo '<td>' . number_format($item->getPert(), 2, ',', '.') . '</td>';
                         echo '<td>' . number_format($item->getDesvio(), 2, ',', '.') . '</td>';
@@ -333,7 +331,5 @@
             </fieldset>
         </div>
         <?php include "../rodape.php"; ?>
-        <?php
-        ?>
     </body>
 </html>

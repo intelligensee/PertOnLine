@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    session_start();
     <head>
         <!-- Estudar depois -->
         <meta charset=”utf-8″>
@@ -39,6 +40,7 @@
                 </li>
                 <li style="float:left"><a class="active" href="#about">Sobre o desenvolvimento</a></li>
                 <li style="float:right"><a class="active" href="#about"><u>Login</u></a></li>                
+                <li style="float:right"><a class="active" href="http://localhost:8888/PertOnLine/testes/testes.php">Testes - Provisório</a></li>
             </ul>
           </div>
     </body>

@@ -1,5 +1,6 @@
 <?php
 
+
 require_once '../interfaces/IDAO.php';
 require_once '../util/ConnectionFactory.php';
 require_once '../domains/Item.php';
@@ -11,7 +12,9 @@ class ItemDAO implements IDAO {
 
     function __construct() {
         //$this->conn = ConnectionFactory::getMySQLConnection();
-        $this->criaItensFake();
+        if (empty($_SESSION['ItensFake'])) {
+            $this->criaItensFake();
+        }
     }
 
     private function criaItensFake() {
@@ -71,10 +74,16 @@ class ItemDAO implements IDAO {
         $i->getDesvio();
         $i->getTotal();
         $this->itensFake[] = $i;
+        $_SESSION['ItensFake'] = $this->itensFake;
     }
 
     public function create($object) {
-        
+        $i = new Item();
+        $i = $object;
+        $this->itensFake = $_SESSION['ItensFake'];
+        $this->itensFake[] = $i;
+        $_SESSION['ItensFake'] = $this->itensFake;
+        return true;
     }
 
     public function delete($object) {
@@ -82,6 +91,7 @@ class ItemDAO implements IDAO {
     }
 
     public function read($object) {
+        $this->itensFake = $_SESSION['ItensFake'];
         return $this->itensFake;
     }
 
