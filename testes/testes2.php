@@ -6,11 +6,10 @@
     </head>
     <body>
         <?php
-        require_once '../controllers/Controller.php';
-        $control = new Controller();
-        $read = $control->process('READ', new Template());
+        require_once '../util/ConnectionFactory.php';
+        $conn = ConnectionFactory::getMySQLConnection();
         echo '<pre>';
-        print_r($read);
+        print_r($conn);
         echo '</pre>';
         ?>
     </body>
