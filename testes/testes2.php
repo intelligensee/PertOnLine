@@ -6,11 +6,22 @@
     </head>
     <body>
         <?php
-        require_once '../util/ConnectionFactory.php';
-        $conn = ConnectionFactory::getMySQLConnection();
+        require_once '../controllers/Controller.php';
+        require_once '../domains/Usuario.php';
+        
+        $control = new Controller();
+        $u = new Usuario();
+        
+        $u->setNome("Ronaldo Pinheiro");
+        $u->setSenha("ronaldo");
+        
+        $control->process("CREATE", $u);
+        $read = $control->process("READ", new Usuario());
+        
         echo '<pre>';
-        print_r($conn);
+        print_r($read);
         echo '</pre>';
+        
         ?>
     </body>
 </html>
