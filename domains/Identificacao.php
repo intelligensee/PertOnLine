@@ -2,9 +2,9 @@
 
 abstract class Identificacao {
 
-    private $id;
-    private $nome;
-    private $descricao;
+    private $id = 0;
+    private $nome = "";
+    private $descricao = "";
     private $criadoEm;
     private $modificadoEm;
 

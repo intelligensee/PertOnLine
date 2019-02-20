@@ -9,7 +9,7 @@ class UsuarioDAO implements IDAO {
     private $conn;
 
     function __construct() {
-        //$this->conn = ConnectionFactory::getMySQLConnection();
+        $this->conn = ConnectionFactory::getMySQLConnection();
     }
 
     public function create($object) {
@@ -17,7 +17,7 @@ class UsuarioDAO implements IDAO {
         $o = $object;
         $nome = $o->getNome();
         $senha = $o->getSenha();
-        $sql = "INSERT INTO pessoas VALUES (0, ?, ?)";
+        $sql = "INSERT INTO usuario VALUES (0, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $nome);
         $stmt->bindParam(2, $senha);
@@ -36,11 +36,11 @@ class UsuarioDAO implements IDAO {
         $nome = $o->getNome();
         $senha = $o->getSenha();
         $first = true;
-        $sql = "SELECT * FROM pessoas";
+        $sql = "SELECT * FROM usuario";
         if (!empty($id) || !empty($nome) || !empty($senha)) {
             $sql .= " WHERE";
             if (!empty($id)) {
-                $sql .= " id = " . $id;
+                $sql .= " idUsuario = " . $id;
                 $first = false;
             }
             if(!empty($nome)){
@@ -64,7 +64,7 @@ class UsuarioDAO implements IDAO {
         $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($rs as $obj) {
             $o = new Usuario();
-            $o->setId($obj["id"]);
+            $o->setId($obj["idUsuario"]);
             $o->setNome($obj["nome"]);
             $o->setSenha($obj["senha"]);
             $list[] = $o;
