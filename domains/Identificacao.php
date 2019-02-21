@@ -21,10 +21,18 @@ abstract class Identificacao {
     }
 
     function getCriadoEm(): DateTime {
+        if (!$this->criadoEm) {
+            $this->criadoEm = new DateTime('now');
+            $fuso = new DateTimeZone('America/Sao_Paulo');
+            $this->criadoEm->setTimezone($fuso);
+        }
         return $this->criadoEm;
     }
 
     function getModificadoEm(): DateTime {
+        if (!$this->modificadoEm) {
+            $this->modificadoEm = new DateTime("now");
+        }
         return $this->modificadoEm;
     }
 

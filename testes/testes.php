@@ -313,13 +313,13 @@
                         echo '<td>' . $item->getPagamento()->getNome() . '</td>';
                         $read = $control->process("READ", new Template());
                         foreach ($read[1] as $obj) {
-                            $temp = new Template();
-                            $temp = $obj;
-                            foreach ($temp->getItens() as $objI) {
+                            $templ = new Template();
+                            $templ = $obj;
+                            foreach ($templ->getItens() as $objI) {
                                 $it = new Item();
                                 $it = $objI;
                                 if ($it->getId() === $item->getId()) {
-                                    echo '<td>' . $temp->getNome() . '</td>';
+                                    echo '<td>' . $templ->getNome() . '</td>';
                                     break;
                                 }
                             }

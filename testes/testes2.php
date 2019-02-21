@@ -7,20 +7,14 @@
     <body>
         <?php
         require_once '../controllers/Controller.php';
-        require_once '../domains/Usuario.php';
+        require_once '../domains/Categoria.php';
         
         $control = new Controller();
-        $u = new Usuario();
+        $obj = new Categoria();
         
-        $u->setNome("Ronaldo Pinheiro");
-        $u->setSenha("ronaldo");
+        $obj->setNome("OPEX");
         
-        $control->process("CREATE", $u);
-        $read = $control->process("READ", new Usuario());
-        
-        echo '<pre>';
-        print_r($read);
-        echo '</pre>';
+        //$control->process("CREATE", $obj);
         
         ?>
     </body>
