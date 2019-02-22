@@ -7,14 +7,19 @@
     <body>
         <?php
         require_once '../controllers/Controller.php';
-        require_once '../domains/Categoria.php';
+        require_once '../domains/Subcategoria.php';
         
         $control = new Controller();
-        $obj = new Categoria();
+        $obj = new Subcategoria();
         
-        $obj->setNome("OPEX");
+        $obj->setNome("Viagem");
+        $control->process("CREATE", $obj);
         
-        //$control->process("CREATE", $obj);
+        $obj = new Subcategoria();
+        $read = $control->process("READ", $obj);
+        echo '<pre>';
+        print_r($read);
+        echo '</pre>';
         
         ?>
     </body>

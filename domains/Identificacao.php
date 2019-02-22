@@ -6,7 +6,9 @@ abstract class Identificacao {
     private $nome = "";
     private $descricao = "";
     private $criadoEm;
+    private $criadoPor;
     private $modificadoEm;
+    private $modificadoPor;
 
     function getId(): int {
         return $this->id;
@@ -29,11 +31,19 @@ abstract class Identificacao {
         return $this->criadoEm;
     }
 
+    function getCriadoPor() : Usuario {
+        return $this->criadoPor;
+    }
+
     function getModificadoEm(): DateTime {
         if (!$this->modificadoEm) {
             $this->modificadoEm = new DateTime("now");
         }
         return $this->modificadoEm;
+    }
+
+    function getModificadoPor() : Usuario {
+        return $this->modificadoPor;
     }
 
     function setId(int $id) {
@@ -52,8 +62,16 @@ abstract class Identificacao {
         $this->criadoEm = $criadoEm;
     }
 
+    function setCriadoPor(Usuario $criadoPor) {
+        $this->criadoPor = $criadoPor;
+    }
+
     function setModificadoEm(DateTime $modificadoEm) {
         $this->modificadoEm = $modificadoEm;
+    }
+
+    function setModificadoPor(Usuario $modificadoPor) {
+        $this->modificadoPor = $modificadoPor;
     }
 
 }

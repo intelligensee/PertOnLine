@@ -13,11 +13,11 @@ class UsuarioDAO implements IDAO {
     }
 
     public function create($object) {
-        $o= new Usuario();
+        $o = new Usuario();
         $o = $object;
         $nome = $o->getNome();
         $senha = $o->getSenha();
-        $sql = "INSERT INTO usuario VALUES (0, ?, ?)";
+        $sql = "INSERT INTO usuario VALUES (0, ?, ?, 1)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $nome);
         $stmt->bindParam(2, $senha);
@@ -37,26 +37,25 @@ class UsuarioDAO implements IDAO {
         $senha = $o->getSenha();
         $first = true;
         $sql = "SELECT * FROM usuario";
-        if (!empty($id) || !empty($nome) || !empty($senha)) {
+        if ($id != 0 || !empty($nome) || !empty($senha)) {
             $sql .= " WHERE";
-            if (!empty($id)) {
+            if (id != 0) {
                 $sql .= " idUsuario = " . $id;
                 $first = false;
             }
-            if(!empty($nome)){
-                if(!$first){
+            if (!empty($nome)) {
+                if (!$first) {
                     $sql .= " AND";
                 }
-                $sql .= " nome = '" .$nome . "'";
+                $sql .= " nome = '" . $nome . "'";
                 $first = false;
             }
-            if(!empty($senha)){
-                if(!$first){
+            if (!empty($senha)) {
+                if (!$first) {
                     $sql .= " AND";
                 }
-                $sql .= " senha = '" .$senha ."'";
+                $sql .= " senha = '" . $senha . "'";
             }
-            
         }
         echo $sql;
         $stmt = $this->conn->prepare($sql);
@@ -65,7 +64,7 @@ class UsuarioDAO implements IDAO {
         foreach ($rs as $obj) {
             $o = new Usuario();
             $o->setId($obj["idUsuario"]);
-            $o->setNome($obj["nome"]);
+            $o->setNome($obj["nomeUsuario"]);
             $o->setSenha($obj["senha"]);
             $list[] = $o;
         }

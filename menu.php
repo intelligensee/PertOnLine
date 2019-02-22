@@ -46,7 +46,13 @@
                 </li>
                 <li style="float:left"><a class="active" href="#about">Sobre o desenvolvimento</a></li>
                 <li style="float:right"><a class="active" href="#about"><u>Login</u></a></li>                
-                <li style="float:right"><a class="active" href="http://localhost/PertOnLine/testes/testes.php">Testes - Provisório</a></li>
+                <li style="float: right" class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Testes - Provisório</a>
+                    <div class="dropdown-content">
+                        <a href="http://localhost/PertOnLine/testes/testes.php">Teste</a>
+                        <a href="http://localhost/PertOnLine/testes/testes2.php">Teste2</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </body>
