@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 require_once '../interfaces/IDAO.php';
 require_once '../util/ConnectionFactory.php';
 require_once '../domains/Usuario.php';
@@ -46,7 +46,7 @@ class SubCategoriaDAO implements IDAO {
         $nome = $o->getNome();
         $first = true;
         $sql = "SELECT * FROM subCategoria JOIN usuario ON (criadoPor = idUsuario)";
-        if ($id != 0 || !empty($nome) || !empty($senha)) {
+        if ($id != 0 || !empty($nome)) {
             $sql .= " WHERE";
             if ($id != 0) {
                 $sql .= " idSubCategoria = " . $id;

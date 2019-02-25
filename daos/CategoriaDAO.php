@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require_once '../interfaces/IDAO.php';
 require_once '../util/ConnectionFactory.php';
 require_once '../domains/Usuario.php';
@@ -46,7 +45,7 @@ class CategoriaDAO implements IDAO {
         $nome = $o->getNome();
         $first = true;
         $sql = "SELECT * FROM categoria JOIN usuario ON (criadoPor = idUsuario)";
-        if ($id != 0 || !empty($nome) || !empty($senha)) {
+        if ($id != 0 || !empty($nome)) {
             $sql .= " WHERE";
             if ($id != 0) {
                 $sql .= " idCategoria = " . $id;

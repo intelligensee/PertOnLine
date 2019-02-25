@@ -7,15 +7,15 @@
     <body>
         <?php
         require_once '../controllers/Controller.php';
-        require_once '../domains/Subcategoria.php';
+        require_once '../domains/Equipe.php';
         
         $control = new Controller();
-        $obj = new Subcategoria();
+        $obj = new Equipe();
         
-        $obj->setNome("Viagem");
-        $control->process("CREATE", $obj);
+        $obj->setNome("Desenvolvimento PERT");
+        //$control->process("CREATE", $obj);
         
-        $obj = new Subcategoria();
+        $obj = new Template();
         $read = $control->process("READ", $obj);
         echo '<pre>';
         print_r($read);

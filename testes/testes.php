@@ -279,6 +279,7 @@
                 $i->setPessimista($pessimista);
                 $i->setQtdDesvios($qtdDesvios);
                 $i->setValorUnitario($valor);
+                $i->setIdTemplate($idTemplate);
                 $control->process("CREATE", $i);
             } else {
                 echo'<h2>Todos os campos são obrigatórios!</h2>';

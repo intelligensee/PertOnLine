@@ -10,6 +10,7 @@ require_once '../daos/SubCategoriaDAO.php';
 require_once '../daos/PagamentoDAO.php';
 require_once '../daos/ItemDAO.php';
 require_once '../daos/TemplateDAO.php';
+require_once '../daos/EquipeDAO.php';
 
 class fachada implements IFachada {
 
@@ -79,6 +80,7 @@ class fachada implements IFachada {
         $mapDAO[get_class(new Pagamento())] = new PagamentoDAO();
         $mapDAO[get_class(new Item())] = new ItemDAO();
         $mapDAO[get_class(new Template())] = new TemplateDAO();
+        $mapDAO[get_class(new Equipe())] = new EquipeDAO();
 
         return $mapDAO[get_class($object)];
     }

@@ -19,8 +19,8 @@ class Template extends Identificacao {
         $this->cliente[] = $cliente;
     }
 
-    function setItens(Item $itens) {
-        $this->itens[] = $itens;
+    function setItens(Item $item) {
+        $this->itens[] = $item;
     }
 
 }

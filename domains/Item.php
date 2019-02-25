@@ -15,6 +15,7 @@ class Item extends Identificacao {
     private $moeda;
     private $pagamento;
     private $equipe;
+    private $idTemplate = 0;
 
     function getOtimista(): float {
         return $this->otimista;
@@ -32,7 +33,7 @@ class Item extends Identificacao {
         $o = $this->otimista;
         $m = $this->maisProvavel;
         $p = $this->pessimista;
-        return ($o + 4 * $m + $p)/6;
+        return ($o + 4 * $m + $p) / 6;
     }
 
     function getDesvio(): float {
@@ -56,24 +57,28 @@ class Item extends Identificacao {
         return $total;
     }
 
-    function getCategoria() : Categoria {
+    function getCategoria(): Categoria {
         return $this->categoria;
     }
 
-    function getSubCategoria() : Subcategoria{
+    function getSubCategoria(): Subcategoria {
         return $this->subCategoria;
     }
 
-    function getMoeda() : Moeda{
+    function getMoeda(): Moeda {
         return $this->moeda;
     }
 
-    function getPagamento() : Pagamento{
+    function getPagamento(): Pagamento {
         return $this->pagamento;
     }
 
-    function getEquipe() : Equipe{
+    function getEquipe(): Equipe {
         return $this->equipe;
+    }
+
+    function getIdTemplate() : int {
+        return $this->idTemplate;
     }
 
     function setOtimista(float $otimista) {
@@ -114,6 +119,10 @@ class Item extends Identificacao {
 
     function setEquipe(Equipe $equipe) {
         $this->equipe = $equipe;
+    }
+
+    function setIdTemplate(int $idTemplate) {
+        $this->idTemplate = $idTemplate;
     }
 
 }
