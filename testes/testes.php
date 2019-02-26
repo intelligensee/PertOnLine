@@ -47,7 +47,7 @@
                                 <label>Otimista</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtOtimista" id="GITxtOtimista">
+                                <input type="number" name="GITxtOtimista" id="GITxtOtimista">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Mais provável</label>
@@ -200,27 +200,33 @@
             if (isset($_POST['GITxtNomeDoItem']) && !empty($_POST['GITxtNomeDoItem'])) {
                 $nome = $_POST['GITxtNomeDoItem'];
             } else {
+                $msg = "Nome </br>";
                 $flag = false;
             }
             if (isset($_POST['GITxtDescricaoDoItem']) && !empty($_POST['GITxtDescricaoDoItem'])) {
                 $desc = $_POST['GITxtDescricaoDoItem'];
             } else {
                 $flag = false;
+                $msg .= "Descrição </br>";
             }
             if (isset($_POST['GITxtOtimista']) && !empty($_POST['GITxtOtimista'])) {
                 $otimista = $_POST['GITxtOtimista'];
+                print_r($otimista);
             } else {
                 $flag = false;
+                $msg .= "Otimista </br>";
             }
             if (isset($_POST['GITxtMaisProvavel']) && !empty($_POST['GITxtMaisProvavel'])) {
                 $maisProv = $_POST['GITxtMaisProvavel'];
             } else {
                 $flag = false;
+                $msg .= "Mais Provável </br>";
             }
             if (isset($_POST['GITxtPessimista']) && !empty($_POST['GITxtPessimista'])) {
                 $pessimista = $_POST['GITxtPessimista'];
             } else {
                 $flag = false;
+                $msg .= "Pessimista </br>";
             }
             if (isset($_POST['GITxtDesvios']) && !empty($_POST['GITxtDesvios'])) {
                 $qtdDesvios = $_POST['GITxtDesvios'];
@@ -236,6 +242,7 @@
                 $valor = $_POST['GITxtValorUnitario'];
             } else {
                 $flag = false;
+                $msg .= "Valor Unitário </br>";
             }
             if (isset($_POST['GITxtCategoria']) && !empty($_POST['GITxtCategoria'])) {
                 $categoria = $_POST['GITxtCategoria'];
@@ -262,16 +269,19 @@
                 $c = new Categoria();
                 $s = new Subcategoria();
                 $p = new Pagamento();
+                $e = new Equipe();
                 $t = new Template();
                 $i = new Item();
                 $m->setId($moeda);
                 $c->setId($categoria);
                 $s->setId($subCategoria);
                 $p->setId($pagamento);
+                $e->setId(2); //provisório até adequar a página
                 $i->setMoeda($m);
                 $i->setCategoria($c);
                 $i->setSubCategoria($s);
                 $i->setPagamento($p);
+                $i->setEquipe($e);
                 $i->setNome($nome);
                 $i->setDescricao($desc);
                 $i->setOtimista($otimista);
@@ -279,10 +289,10 @@
                 $i->setPessimista($pessimista);
                 $i->setQtdDesvios($qtdDesvios);
                 $i->setValorUnitario($valor);
-                $i->setIdTemplate($idTemplate);
+                $i->setIdTemplate($template);
                 $control->process("CREATE", $i);
             } else {
-                echo'<h2>Todos os campos são obrigatórios!</h2>';
+                echo'<h2>Os campos obrigatórios abaixo não foram preenchidos:</h2>' . $msg;
             }
             ?>
             <fieldset>

@@ -35,7 +35,7 @@ class ItemDAO implements IDAO {
         $idPagamento = $o->getPagamento()->getId();
         $idEquipe = $o->getEquipe()->getId();
         $idTemplate = $o->getIdTemplate();
-        $sql = "INSERT INTO categoria VALUES (0, ?, ?, ?, ?, null, null, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO item VALUES (0, ?, ?, ?, ?, null, null, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $nome);
         $stmt->bindParam(2, $descricao);
@@ -53,7 +53,7 @@ class ItemDAO implements IDAO {
         $stmt->bindParam(14, $idEquipe);
         $stmt->execute();
         //Obtem o id do novo item
-        $sql = "SELECT idItem FROM item WHERE nome = " . $nome;
+        $sql = "SELECT idItem FROM item WHERE nome = '" . $nome . "'";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
