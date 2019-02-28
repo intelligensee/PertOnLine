@@ -12,11 +12,14 @@
         require_once '../domains/Categoria.php';
         require_once '../domains/Subcategoria.php';
         require_once '../domains/Pagamento.php';
+        require_once '../domains/Equipe.php';
         $control = new Controller();
-        $moeda = new Moeda();
+        $item = new Item();
         $categoria = new Categoria();
         $subcategoria = new Subcategoria();
+        $moeda = new Moeda();
         $pagamento = new Pagamento();
+        $equipe = new Equipe();
         ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
@@ -31,7 +34,17 @@
                                 <label>Nome do item</label>
                             </td>
                             <td colspan="5">
-                                <input type="text" name="GITxtNomeDoItem" id="GITxtNomeDoItem">
+                                <?php
+                                //$item->setNome("Teste");
+                                if (empty($item->getNome())) {
+                                    $nome = "";
+                                } else {
+                                    $nome = "value = " .$item->getNome();
+                                }
+                                echo '
+                                    <input type = "text" ' . $nome . ' name = "GITxtNomeDoItem" id = "GITxtNomeDoItem">
+                                    '
+                                ?>
                             </td>
                         </tr>
                         <tr>
