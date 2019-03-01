@@ -35,11 +35,12 @@ class UsuarioDAO implements IDAO {
         $id = $o->getId();
         $nome = $o->getNome();
         $senha = $o->getSenha();
+        $list;
         $first = true;
         $sql = "SELECT * FROM usuario";
         if ($id != 0 || !empty($nome) || !empty($senha)) {
             $sql .= " WHERE";
-            if (id != 0) {
+            if ($id != 0) {
                 $sql .= " idUsuario = " . $id;
                 $first = false;
             }
@@ -47,7 +48,7 @@ class UsuarioDAO implements IDAO {
                 if (!$first) {
                     $sql .= " AND";
                 }
-                $sql .= " nome = '" . $nome . "'";
+                $sql .= " nomeUsuario = '" . $nome . "'";
                 $first = false;
             }
             if (!empty($senha)) {
