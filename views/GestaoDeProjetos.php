@@ -91,7 +91,7 @@
                                 <label>Data da criação</label>
                             </td>
                             <td>
-                                <input type="text" name="GPTxtDataDeCriacaoDoProjeto" id="GPTxtDataDeCriacaoDoProjeto" value="04/02/2019">
+                                <input type="date" name="GPTxtDataDeCriacaoDoProjeto" id="GPTxtDataDeCriacaoDoProjeto" value="04/02/2019">
                             </td>
                         </tr>
                         <tr>

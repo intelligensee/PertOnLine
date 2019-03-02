@@ -35,7 +35,7 @@ th, .linhaGestao, .colunaGestao{
 
 /* Intercalar cor nas linhas que forem sendo exibidas nos itens cadastrados */
 .linhaGestao:nth-child(even){
-    background-color: #f2f2f2;
+    background-color: #f5f5f5;
 }
 
 /* Cor do cabeçalho das tabelas */
@@ -66,7 +66,7 @@ input, select, textarea{
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #d5d5d5;
-    background-color: #f2f2f2;
+    background-color: #f5f5f5;
     width: 100%;
 }
 
@@ -94,4 +94,8 @@ input, select{
     text-align: center;
     color: #808080;
 
+}
+
+.disable{
+    background-color: #dcdcdc;
 }

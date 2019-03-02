@@ -73,23 +73,20 @@
                             <td>
                                 <input type="text" name="GITxtPessimista" id="GITxtPessimista">
                             </td>
-                        </tr>
-                        
+                        </tr>                        
                         <tr>
-                            <!-- Comentado a pedido do Ronaldo Santos Pinheiro, 14/02/2019
                             <td class="nomeDosCampos">
                                 <label>PERT</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtPERT" id="GITxtPERT">
+                                <input class="disable" type="text" disabled name="GITxtPERT" id="GITxtPERT">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvio padrão</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
+                                <input class="disable" type="text" disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
                             </td>
-                        </tr> -->
                             <td class="nomeDosCampos">
                                 <label>Desvios</label>
                             </td>
@@ -99,7 +96,9 @@
                                     <option value="2">1</option>
                                     <option value="3">0</option>
                                 </select>
-                            </td>                        
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="nomeDosCampos">
                                 <label>Moeda</label>
                             </td>
@@ -123,13 +122,12 @@
                             <td>
                                 <input type="text" name="GITxtValorUnitario" id="GITxtValorUnitario">
                             </td>
-                            <!-- Comentado a pedido do Ronaldo Santos Pinheiro, 14/02/2019
                             <td class="nomeDosCampos">
                                 <label>Total</label>
                             </td> 
                             <td>
-                                <input type="text" name="GITxtTotal" id="GITxtTotal">
-                            </td> -->
+                                <input class="disable" type="text" disabled name="GITxtTotal" id="GITxtTotal">
+                            </td>
                         </tr>
                         <tr>
                             <td class="nomeDosCampos">
