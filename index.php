@@ -21,7 +21,7 @@
             <p>
                 <b>Desvio Padrão:</b> o desvio padrão por sua vez, serve para medir o quanto de variação ou dispersão existem em relação a média, e sua forma se estabelece pela raiz quadrada da variância de cada atividade, segue:
             </p>
-            <center><img src="images/pert.png"></center>
+            <center><img src="images/desvio.png"></center>
             <p>
                 Logo, para se obter uma estimativa com 68,2% de assertividade, a seguinte fórmula é aplicada: PERT + 1x(Desvio Padrão). Caso seja necessário uma estimativa com 95,4% de assertividade, deve-se multiplicar o desvio padrão por 2 e com 99,6%, deve-se multiplicar por 3.
             </p>

@@ -3,7 +3,7 @@
     <head>
         <title>Gestão dos projetos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="http://localhost:8888/PertOnLine/styles/modal.css">
+        <link rel="stylesheet" type="text/css" href="http://localhost/PertOnLine/styles/modal.css">
     </head>
     <body>
         <?php
@@ -332,6 +332,6 @@
             </div>
         </div>
         <?php include "../rodape.php"; ?>
-        <script type="text/javascript" src="http://localhost:8888/PertOnline/styles/modal.js"></script>
+        <script type="text/javascript" src="http://localhost/PertOnline/styles/modal.js"></script>
     </body>
 </html>

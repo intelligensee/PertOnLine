@@ -43,6 +43,19 @@
                         </tr>
                         <tr>
                             <td class="nomeDosCampos">
+                                <label>Equipe</label>
+                            </td>
+                            <td colspan="5">
+                                <select name="GITxtEquipe" id="GITxtEquipe">
+                                    <option value="1">Infra Projetos</option>
+                                    <option value="1">Redes</option>
+                                    <option value="2">Windows</option>
+                                    <option value="2">Arquitetura</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="nomeDosCampos">
                                 <label>Otimista</label>
                             </td>
                             <td>
@@ -61,7 +74,9 @@
                                 <input type="text" name="GITxtPessimista" id="GITxtPessimista">
                             </td>
                         </tr>
+                        
                         <tr>
+                            <!-- Comentado a pedido do Ronaldo Santos Pinheiro, 14/02/2019
                             <td class="nomeDosCampos">
                                 <label>PERT</label>
                             </td>
@@ -74,6 +89,7 @@
                             <td>
                                 <input type="text" name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
                             </td>
+                        </tr> -->
                             <td class="nomeDosCampos">
                                 <label>Desvios</label>
                             </td>
@@ -83,9 +99,7 @@
                                     <option value="2">1</option>
                                     <option value="3">0</option>
                                 </select>
-                            </td>
-                        </tr>
-                        <tr>
+                            </td>                        
                             <td class="nomeDosCampos">
                                 <label>Moeda</label>
                             </td>
@@ -109,12 +123,13 @@
                             <td>
                                 <input type="text" name="GITxtValorUnitario" id="GITxtValorUnitario">
                             </td>
+                            <!-- Comentado a pedido do Ronaldo Santos Pinheiro, 14/02/2019
                             <td class="nomeDosCampos">
                                 <label>Total</label>
-                            </td>
+                            </td> 
                             <td>
                                 <input type="text" name="GITxtTotal" id="GITxtTotal">
-                            </td>
+                            </td> -->
                         </tr>
                         <tr>
                             <td class="nomeDosCampos">
@@ -191,7 +206,7 @@
                     <h3 class="tituloSeccao">Itens cadastrados</h3>
                 </legend>
                 <table class="gestao">
-                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Template associado</th>
+                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Template associado</th>
                     <tr class="linhaGestao">
                         <td>
                             <a href="#"><img class="icones" src="../images/icones/ver.png" alt="Visualizar cadastro"></a>
@@ -201,6 +216,7 @@
                         <td>Máquina virtual</td>
                         <td>1</td>
                         <td>0</td>
+                        <td>2</td>
                         <td>1</td>
                         <td>(U$) Dólar</td>
                         <td>100,00</td>
@@ -219,6 +235,7 @@
                         <td>Configurar máquina virtual</td>
                         <td>2,5</td>
                         <td>0,5</td>
+                        <td>2</td>
                         <td>3,5</td>
                         <td>(R$) Reais</td>
                         <td>100,00</td>
