@@ -59,19 +59,19 @@
                                 <label>Otimista</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtOtimista" id="GITxtOtimista">
+                                <input class="alinhaCentro" type="text" name="GITxtOtimista" id="GITxtOtimista">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Mais provável</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtMaisProvavel" id="GITxtMaisProvavel">
+                                <input class="alinhaCentro" type="text" name="GITxtMaisProvavel" id="GITxtMaisProvavel">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Pessimista</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtPessimista" id="GITxtPessimista">
+                                <input class="alinhaCentro" type="text" name="GITxtPessimista" id="GITxtPessimista">
                             </td>
                         </tr>                        
                         <tr>
@@ -120,7 +120,7 @@
                                 <label>Valor unitário</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtValorUnitario" id="GITxtValorUnitario">
+                                <input class="alinhaCentro" type="text" name="GITxtValorUnitario" id="GITxtValorUnitario">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Total</label>

@@ -18,9 +18,9 @@
         <link rel="stylesheet" type="text/css" href="http://localhost/PertOnLine/styles/formularios.css">
     </head>
     <body>
-        <div class="navbar">
+        <div class="navbar">         
             <ul>
-                <li><a href="http://localhost/PertOnLine/index.php">PERT Online</a></li>
+                <li id="IconePrincipal"><a href="http://localhost/PertOnLine/index.php"><img src="http://localhost/PertOnLine/images/icones/home.png"></a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Cadastro</a>
                     <div class="dropdown-content">
