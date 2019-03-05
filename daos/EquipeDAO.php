@@ -1,12 +1,13 @@
 <?php
 
-//session_start();
+session_start();
 require_once '../interfaces/IDAO.php';
 require_once '../util/ConnectionFactory.php';
 require_once '../domains/Usuario.php';
 require_once '../domains/Equipe.php';
 
-class EquipeDAO implements IDAO{
+class EquipeDAO implements IDAO {
+
     private $conn;
     private $user;
 
@@ -51,11 +52,11 @@ class EquipeDAO implements IDAO{
                 $sql .= " idEquipe = " . $id;
                 $first = false;
             }
-            if(!empty($nome)){
-                if(!$first){
+            if (!empty($nome)) {
+                if (!$first) {
                     $sql .= " AND";
                 }
-                $sql .= " nome = '" .$nome . "'";
+                $sql .= " nome = '" . $nome . "'";
                 $first = false;
             }
         }
@@ -80,7 +81,26 @@ class EquipeDAO implements IDAO{
     }
 
     public function upDate($object) {
-        
+        $u = new Usuario();
+        $u = $this->user;
+        $o = new Equipe();
+        $o = $object;
+        $id = $o->getId();
+        $nome = $o->getNome();
+        $descricao = $o->getDescricao();
+        $modificadoEm = $o->getModificadoEm()->format("y-m-d H:m:s");
+        $modificadoPor = $u->getId();
+        $sql = "UPDATE equipe SET nome = ?, descricao = ?,";
+        $sql .= " modificadoEm = ?, modificadoPor = ?";
+        $sql .= " WHERE idEquipe = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $nome);
+        $stmt->bindParam(2, $descricao);
+        $stmt->bindParam(3, $modificadoEm);
+        $stmt->bindParam(4, $modificadoPor);
+        $stmt->bindParam(5, $id);
+        $stmt->execute();
+        return true;
     }
 
 }

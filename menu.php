@@ -52,6 +52,7 @@
                         <a href="http://localhost/PertOnLine/testes/testes.php">Teste</a>
                         <a href="http://localhost/PertOnLine/testes/testes2.php">Teste2</a>
                         <a href="http://localhost/PertOnLine/testes/testes3.php">Teste3</a>
+                        <a href="http://localhost/PertOnLine/testes/testes4.php">Teste4</a>
                     </div>
                 </li>
             </ul>

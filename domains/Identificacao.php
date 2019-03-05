@@ -38,6 +38,8 @@ abstract class Identificacao {
     function getModificadoEm(): DateTime {
         if (!$this->modificadoEm) {
             $this->modificadoEm = new DateTime("now");
+            $fuso = new DateTimeZone('America/Sao_Paulo');
+            $this->criadoEm->setTimezone($fuso);
         }
         return $this->modificadoEm;
     }

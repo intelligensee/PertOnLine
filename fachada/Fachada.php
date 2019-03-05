@@ -46,9 +46,9 @@ class fachada implements IFachada {
     }
 
     public function update($object) {
-        echo 'Update! </br><pre>';
-        print_r($object);
-        echo '</pre>';
+        $ret[] = $this->executeRules("UPDATE", $object);
+        $ret[] = $this->instanceDAO($object)->upDate($object);
+        return $ret;
     }
 
     private function executeRules($command, $object) {

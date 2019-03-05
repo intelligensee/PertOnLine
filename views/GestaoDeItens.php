@@ -7,15 +7,20 @@
     <body>
         <?php
         require_once '../controllers/Controller.php';
+        require_once '../domains/Item.php';
         require_once '../domains/Moeda.php';
         require_once '../domains/Categoria.php';
         require_once '../domains/Subcategoria.php';
         require_once '../domains/Pagamento.php';
+        require_once '../domains/Equipe.php';
         $control = new Controller();
-        $moeda = new Moeda();
+        $item = new Item();
+        $item->setMoeda(new Moeda());
         $categoria = new Categoria();
         $subcategoria = new Subcategoria();
+        $moeda = new Moeda();
         $pagamento = new Pagamento();
+        $equipe = new Equipe();
         ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
