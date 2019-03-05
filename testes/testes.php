@@ -15,6 +15,7 @@
         require_once '../domains/Equipe.php';
         $control = new Controller();
         $item = new Item();
+        $item->setMoeda(new Moeda());
         $categoria = new Categoria();
         $subcategoria = new Subcategoria();
         $moeda = new Moeda();
@@ -25,7 +26,7 @@
         <div class="conteudo">
             <fieldset>
                 <legend>
-                    <h3 class="tituloSeccao">Gestão dos itens</h3>
+                    <h3 class="tituloSeccao">Gestão dos itens - Teste</h3>
                 </legend>
                 <form method="post">
                     <table class="estruturaFormulario">
@@ -39,7 +40,7 @@
                                 if (empty($item->getNome())) {
                                     $nome = "";
                                 } else {
-                                    $nome = "value = " .$item->getNome();
+                                    $nome = "value = " . $item->getNome();
                                 }
                                 echo '
                                     <input type = "text" ' . $nome . ' name = "GITxtNomeDoItem" id = "GITxtNomeDoItem">
@@ -60,19 +61,19 @@
                                 <label>Otimista</label>
                             </td>
                             <td>
-                                <input type="number" name="GITxtOtimista" id="GITxtOtimista">
+                                <input type="number" <?php echo 'value =' . $item->getOtimista() ?> name="GITxtOtimista" id="GITxtOtimista">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Mais provável</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtMaisProvavel" id="GITxtMaisProvavel">
+                                <input type="text" <?php echo 'value =' . $item->getMaisProvavel() ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Pessimista</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtPessimista" id="GITxtPessimista">
+                                <input type="text" <?php echo 'value =' . $item->getPessimista() ?> name="GITxtPessimista" id="GITxtPessimista">
                             </td>
                         </tr>
                         <tr>
@@ -80,13 +81,13 @@
                                 <label>PERT</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtPERT" id="GITxtPERT">
+                                <input type="text" <?php echo 'value =' . $item->getPert() ?> name="GITxtPERT" id="GITxtPERT">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvio padrão</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
+                                <input type="text" <?php echo 'value =' . $item->getDesvio() ?> name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvios</label>
@@ -121,13 +122,13 @@
                                 <label>Valor unitário</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtValorUnitario" id="GITxtValorUnitario">
+                                <input type="text" <?php echo 'value =' . $item->getValorUnitario() ?> name="GITxtValorUnitario" id="GITxtValorUnitario">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Total</label>
                             </td>
                             <td>
-                                <input type="text" name="GITxtTotal" id="GITxtTotal">
+                                <input type="text" <?php echo 'value =' . $item->getTotal() ?> name="GITxtTotal" id="GITxtTotal">
                             </td>
                         </tr>
                         <tr>
@@ -210,11 +211,13 @@
             </fieldset>
             <?php
             $flag = true;
-            if (isset($_POST['GITxtNomeDoItem']) && !empty($_POST['GITxtNomeDoItem'])) {
-                $nome = $_POST['GITxtNomeDoItem'];
-            } else {
-                $msg = "Nome </br>";
-                $flag = false;
+            if (isset($_POST['GITxtNomeDoItem'])) {
+                if (!empty($_POST['GITxtNomeDoItem'])) {
+                    $nome = $_POST['GITxtNomeDoItem'];
+                } else {
+                    $msg = "Nome </br>";
+                    $flag = false;
+                }
             }
             if (isset($_POST['GITxtDescricaoDoItem']) && !empty($_POST['GITxtDescricaoDoItem'])) {
                 $desc = $_POST['GITxtDescricaoDoItem'];

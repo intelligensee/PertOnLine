@@ -58,7 +58,7 @@ class UsuarioDAO implements IDAO {
                 $sql .= " senha = '" . $senha . "'";
             }
         }
-        echo $sql;
+        //echo $sql;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -4,8 +4,8 @@ require_once 'Identificacao.php';
 
 class Moeda extends Identificacao {
 
-    private $simbolo;
-    private $cotacao;
+    private $simbolo = "$";
+    private $cotacao = 1;
 
     function getSimbolo(): string {
         return $this->simbolo;

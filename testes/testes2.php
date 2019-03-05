@@ -22,8 +22,12 @@
                 <input type="text" id="usuario"></p>
             <p><label>Senha</label>
                 <input type="password" id="senha"></p>
-            <p><input type="button" value="Entrar" onclick="consultar('retorno')" ></p>
-            <p><span id="retorno"></span></p>
+            <p><input type="button" value="Entrar" onclick="consultar()" ></p>
         </form>
+        <span id="msg"></span>
+        <table>
+            <tr><th>id</th><th>Nome</th><th>Senha</th></tr>
+            <tr><td id="tdId"></td><td id="tdNome"></td><td id="tdSenha"></td></tr>
+        </table>
     </body>
 </html>

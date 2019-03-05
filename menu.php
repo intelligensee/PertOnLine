@@ -51,6 +51,7 @@
                     <div class="dropdown-content">
                         <a href="http://localhost/PertOnLine/testes/testes.php">Teste</a>
                         <a href="http://localhost/PertOnLine/testes/testes2.php">Teste2</a>
+                        <a href="http://localhost/PertOnLine/testes/testes3.php">Teste3</a>
                     </div>
                 </li>
             </ul>

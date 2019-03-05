@@ -5,11 +5,11 @@ require_once '../domains/Moeda.php';
 
 class Item extends Identificacao {
 
-    private $otimista;
-    private $maisProvavel;
-    private $pessimista;
+    private $otimista = 1;
+    private $maisProvavel = 1;
+    private $pessimista = 1;
     private $qtdDesvios;
-    private $valorUnitario;
+    private $valorUnitario = 100;
     private $categoria;
     private $subCategoria;
     private $moeda;
