@@ -4,6 +4,8 @@ function consultar() {
     var xmlhttp = new XMLHttpRequest();
     var parser = new DOMParser();
     var xmlDoc;
+    
+    alert(window.location.href);
 
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {

@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Gestão dos itens</title>
+        <script type="text/javascript" src="../AJAXs/gi.js"></script>
     </head>
     <body>
         <?php
@@ -24,6 +25,7 @@
         ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
+            <span id="retorno"></span>
             <fieldset>
                 <legend>
                     <h3 class="tituloSeccao">Gestão dos itens</h3>
@@ -52,10 +54,14 @@
                             </td>
                             <td colspan="5">
                                 <select name="GITxtEquipe" id="GITxtEquipe">
-                                    <option value="1">Infra Projetos</option>
-                                    <option value="1">Redes</option>
-                                    <option value="2">Windows</option>
-                                    <option value="2">Arquitetura</option>
+                                    <?php
+                                    $read = $control->process("READ", new Equipe());
+                                    foreach ($read[1] as $obj) {
+                                        $e = new Equipe();
+                                        $e = $obj;
+                                        echo '<option value = ' . $e->getId() . '>' . $e->getNome() . '</option>';
+                                    }
+                                    ?>
                                 </select>
                             </td>
                         </tr>
@@ -64,19 +70,19 @@
                                 <label>Otimista</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="text" name="GITxtOtimista" id="GITxtOtimista">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . $item->getOtimista() ?> name="GITxtOtimista" id="GITxtOtimista">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Mais provável</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="text" name="GITxtMaisProvavel" id="GITxtMaisProvavel">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . $item->getMaisProvavel() ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Pessimista</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="text" name="GITxtPessimista" id="GITxtPessimista">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . $item->getPessimista() ?> name="GITxtPessimista" id="GITxtPessimista">
                             </td>
                         </tr>                        
                         <tr>
@@ -84,22 +90,22 @@
                                 <label>PERT</label>
                             </td>
                             <td>
-                                <input class="disable" type="text" disabled name="GITxtPERT" id="GITxtPERT">
+                                <input class="disable" type="number" <?php echo 'value =' . $item->getPert() ?> disabled name="GITxtPERT" id="GITxtPERT">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvio padrão</label>
                             </td>
                             <td>
-                                <input class="disable" type="text" disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
+                                <input class="disable" type="number" <?php echo 'value =' . $item->getDesvio() ?> disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvios</label>
                             </td>
                             <td>
                                 <select name="GITxtDesvios" id="GITxtDesvios">
-                                    <option value="1">2</option>
-                                    <option value="2">1</option>
-                                    <option value="3">0</option>
+                                    <option value="2">2</option>
+                                    <option value="1">1</option>
+                                    <option value="0">0</option>
                                 </select>
                             </td>
                         </tr>
@@ -116,8 +122,6 @@
                                         $m = $obj;
                                         echo '<option value = ' . $m->getId() . '>(' . $m->getSimbolo() . ') ' . $m->getNome() . '</option>';
                                     }
-                                    //<option value="1">(R$) Reais</option>
-                                    //<option value="2">(U$) Dólar</option>
                                     ?>
                                 </select>
                             </td>
@@ -125,13 +129,13 @@
                                 <label>Valor unitário</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="text" name="GITxtValorUnitario" id="GITxtValorUnitario">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . $item->getValorUnitario() ?> name="GITxtValorUnitario" id="GITxtValorUnitario">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Total</label>
                             </td> 
                             <td>
-                                <input class="disable" type="text" disabled name="GITxtTotal" id="GITxtTotal">
+                                <input class="disable" type="number" <?php echo 'value =' . $item->getTotal() ?> disabled name="GITxtTotal" id="GITxtTotal">
                             </td>
                         </tr>
                         <tr>
@@ -147,8 +151,6 @@
                                         $cat = $obj;
                                         echo '<option value = ' . $cat->getId() . '> ' . $cat->getNome() . '</option>';
                                     }
-                                    //<option value="1">CAPEX</option>
-                                    //<option value="2">OPEX</option>
                                     ?>
                                 </select>
                             </td>
@@ -164,8 +166,6 @@
                                         $scat = $obj;
                                         echo '<option value = ' . $scat->getId() . '> ' . $scat->getNome() . '</option>';
                                     }
-                                    //<option value="1">Mão de Obra</option>
-                                    //<option value="2">Viagens</option>
                                     ?>
                                 </select>
                             </td>
@@ -181,8 +181,6 @@
                                         $p = $obj;
                                         echo '<option value = ' . $p->getId() . '> ' . $p->getNome() . '</option>';
                                     }
-                                    //<option value="1">Mensal</option>
-                                    //<option value="2">Anual</option>
                                     ?>
                                 </select>
                             </td>
@@ -193,12 +191,18 @@
                             </td>
                             <td colspan="3">
                                 <select name="GITxtAssociarTemlate" id="GITxtAssociarTemlate">
-                                    <option value="1">Ambiente virtual windows</option>
-                                    <option value="2">Ambiente virtual linux </option>
+                                    <?php
+                                    $read = $control->process("READ", new Template());
+                                    foreach ($read[1] as $obj) {
+                                        $t = new Template();
+                                        $t = $obj;
+                                        echo '<option value = ' . $t->getId() . '> ' . $t->getNome() . '</option>';
+                                    }
+                                    ?>
                                 </select>
                             </td>
                             <td colspan="2">
-                                <input class="botoes" type="button" value="Salvar" onclick="#">
+                                <input class="botoes" type="button" value="Salvar" onclick="execute('GI')">
                             </td>
                         </tr>
                     </table>

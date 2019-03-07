@@ -17,7 +17,7 @@
         ?>
         <script>
             function alerta (){
-                alert("Teste");
+                alert(window.location.href);
                 document.getElementById('vl1').setAttribute("value", "35");
             }
         </script>

@@ -5,10 +5,10 @@ require_once '../domains/Usuario.php';
 $c = new Controller();
 $u = new Usuario();
 $q = $_REQUEST["q"];
-$r = explode("%", $q);
+$exp = explode("%", $q);
 
-$u->setNome($r[0]);
-$u->setSenha($r[1]);
+$u->setNome($exp[0]);
+$u->setSenha($exp[1]);
 
 $read = $c->process("READ", $u);
 if (count($read[1]) === 1) {
