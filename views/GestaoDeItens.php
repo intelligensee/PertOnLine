@@ -101,7 +101,7 @@
                                 <label>Desvios</label>
                             </td>
                             <td>
-                                <select name="GITxtDesvios" id="GITxtDesvios">
+                                <select name="GITxtDesvios" id="GITxtDesvios" onchange="execute('PERT')">
                                     <option value="2">2</option>
                                     <option value="1">1</option>
                                     <option value="0">0</option>
@@ -113,7 +113,7 @@
                                 <label>Moeda</label>
                             </td>
                             <td>
-                                <select name="GITxtMoedas" id="GITxtMoedas">
+                                <select name="GITxtMoedas" id="GITxtMoedas" onchange="execute('PERT')">
                                     <?php
                                     $read = $control->process("READ", new Moeda());
                                     foreach ($read[1] as $obj) {
@@ -213,44 +213,44 @@
                 </legend>
                 <table class="gestao">
                     <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Template associado</th>
-                    <tr class="linhaGestao">
-                        <td>
-                            <a href="#"><img class="icones" src="../images/icones/ver.png" alt="Visualizar cadastro"></a>
-                            <a href="#"><img class="icones" src="../images/icones/editar.png" alt="Visualizar cadastro"></a>
-                            <a href="#"><img class="icones" src="../images/icones/excluir.png" alt="Visualizar cadastro"></a>
-                        </td>    					
-                        <td>Máquina virtual</td>
-                        <td>1</td>
-                        <td>0</td>
-                        <td>2</td>
-                        <td>1</td>
-                        <td>(U$) Dólar</td>
-                        <td>100,00</td>
-                        <td>R$ 400,00</td>
-                        <td>CAPEX</td>
-                        <td>Aquisição de reposição</td>
-                        <td>Uma vez</td>
-                        <td>Ambiente virtual windows</td>
-                    </tr>
-                    <tr class="linhaGestao">
-                        <td>
-                            <a href="#"><img class="icones" src="../images/icones/ver.png" alt="Visualizar cadastro"></a>
-                            <a href="#"><img class="icones" src="../images/icones/editar.png" alt="Visualizar cadastro"></a>
-                            <a href="#"><img class="icones" src="../images/icones/excluir.png" alt="Visualizar cadastro"></a>
-                        </td>    					
-                        <td>Configurar máquina virtual</td>
-                        <td>2,5</td>
-                        <td>0,5</td>
-                        <td>2</td>
-                        <td>3,5</td>
-                        <td>(R$) Reais</td>
-                        <td>100,00</td>
-                        <td>R$ 350,00</td>
-                        <td>CAPEX</td>
-                        <td>Mão de Obra</td>
-                        <td>Uma vez</td>
-                        <td>Ambiente virtual windows</td>
-                    </tr>
+                    <?php
+                    $readItens = $control->process("READ", new Item());
+                    foreach ($readItens[1] as $obj) {
+                        $item = new Item();
+                        $item = $obj;
+                        echo '<tr class = "linhaGestao">
+                              <td>
+                              <a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro" title="?"></a>
+                              <a href = "#"><img class = "icones" src = "../images/icones/editar.png" alt = "Editar cadastro" title="Editar"></a>
+                              <a href = "#"><img class = "icones" src = "../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir"></a>
+                              </td>';
+                        echo '<td>' . $item->getNome() . '</td>';
+                        echo '<td>' . number_format($item->getPert(), 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($item->getDesvio(), 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format($item->getQtdDesvios(), 2, ',', '.') . '</td>';
+                        echo '<td>' . number_format(($item->getPert() + $item->getDesvio() * $item->getQtdDesvios()), 2, ',', '.') . '</td>';
+                        echo '<td>(' . $item->getMoeda()->getSimbolo() . ') ' . $item->getMoeda()->getNome() . '</td>';
+                        echo '<td>' . number_format($item->getValorUnitario(), 2, ',', '.') . '</td>';
+                        echo '<td>R$ ' . number_format($item->getTotal(), 2, ',', '.') . '</td>';
+                        echo '<td>' . $item->getCategoria()->getNome() . '</td>';
+                        echo '<td>' . $item->getSubCategoria()->getNome() . '</td>';
+                        echo '<td>' . $item->getPagamento()->getNome() . '</td>';
+                        $read = $control->process("READ", new Template());
+                        foreach ($read[1] as $obj) {
+                            $templ = new Template();
+                            $templ = $obj;
+                            foreach ($templ->getItens() as $objI) {
+                                $it = new Item();
+                                $it = $objI;
+                                if ($it->getId() === $item->getId()) {
+                                    echo '<td>' . $templ->getNome() . '</td>';
+                                    break;
+                                }
+                            }
+                        }
+                        echo '</tr>';
+                    }
+                    ?>
                 </table>
             </fieldset>
         </div>

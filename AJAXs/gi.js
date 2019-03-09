@@ -10,7 +10,9 @@ function execute(tipo) {
         'GITxtOtimista', //1
         'GITxtMaisProvavel', //2
         'GITxtPessimista', //3
-        'GITxtValorUnitario'//4
+        'GITxtDesvios', //4
+        'GITxtValorUnitario', //5
+        'GITxtMoedas'//6
     ];
 
     var listaGI = [

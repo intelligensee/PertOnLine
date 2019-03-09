@@ -8,7 +8,7 @@ class Item extends Identificacao {
     private $otimista = 1;
     private $maisProvavel = 1;
     private $pessimista = 1;
-    private $qtdDesvios;
+    private $qtdDesvios = 2;
     private $valorUnitario = 100;
     private $categoria;
     private $subCategoria;
@@ -51,10 +51,9 @@ class Item extends Identificacao {
     }
 
     function getTotal(): float {
-        $total = $this->getPert() + $this->getDesvio();
+        $subTotal = $this->getPert() + $this->getDesvio() * $this->getQtdDesvios();
         $cotacao = $this->getMoeda()->getCotacao();
-        $total = $total * $this->valorUnitario * $cotacao;
-        return $total;
+        return $subTotal * $this->getValorUnitario() * $cotacao;
     }
 
     function getCategoria(): Categoria {

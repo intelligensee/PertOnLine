@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Gestão dos itens</title>
+        <title>Gestão dos itens - Testes</title>
         <script type="text/javascript" src="../AJAXs/gi.js"></script>
     </head>
     <body>

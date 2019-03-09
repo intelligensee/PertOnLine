@@ -53,11 +53,18 @@ function GI($exp) {
 }
 
 function PERT($exp) {
+    $control = new Controller();
     $i = new Item();
+    $m = new Moeda();
     $i->setOtimista(str_ireplace(',', '.', str_ireplace('.', '', $exp[1])));
     $i->setMaisProvavel(str_ireplace(',', '.', str_ireplace('.', '', $exp[2])));
     $i->setPessimista(str_ireplace(',', '.', str_ireplace('.', '', $exp[3])));
-    $i->setValorUnitario(str_ireplace(',', '.', str_ireplace('.', '', $exp[4])));
+    $i->setQtdDesvios(str_ireplace(',', '.', str_ireplace('.', '', $exp[4])));
+    $i->setValorUnitario(str_ireplace(',', '.', str_ireplace('.', '', $exp[5])));
+    $m->setId($exp[6]);
+    $read = $control->process("READ", $m);
+    $m = $read[1][0];
+    $i->setMoeda($m);
     echo '<Item>
             <pert>' . $i->getPert() . '</pert>
             <desvio>' . $i->getDesvio() . '</desvio>

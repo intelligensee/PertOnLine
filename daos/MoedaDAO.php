@@ -64,7 +64,6 @@ class MoedaDAO implements IDAO {
                 $first = false;
             }
         }
-        echo $sql;
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
