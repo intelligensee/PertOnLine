@@ -7,14 +7,12 @@
     <body>
         <h1>Teste 4</h1>
         <?php
-        require_once '../controllers/Controller.php';
-        require_once '../domains/Equipe.php';
-
-        $c = new Controller();
-        $e = new Equipe();
-
-        $e->setNome("Arquitetura");
-        //$c->process("CREATE", $e);
+        require_once '../domains/Item.php';
+        $i = new Item();
+        //$n = str_ireplace('.', '', '1.000,87');
+        $x = str_ireplace(',', '.', str_ireplace('.', '', '1.010,87'));
+        $i->setOtimista($x);
+        echo 'Retorno: ' . $i->getOtimista();
         
         ?>
     </body>

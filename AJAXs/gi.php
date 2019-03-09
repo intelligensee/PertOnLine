@@ -7,41 +7,60 @@ require_once '../domains/Categoria.php';
 require_once '../domains/Subcategoria.php';
 require_once '../domains/Pagamento.php';
 require_once '../domains/Equipe.php';
-$control = new Controller();
+
 
 $q = $_REQUEST["q"];
 $exp = explode("?", $q);
 
-$m = new Moeda();
-$c = new Categoria();
-$s = new Subcategoria();
-$p = new Pagamento();
-$e = new Equipe();
-$t = new Template();
-$i = new Item();
+if ($exp[0] === 'GI') {
+    GI($exp);
+} else {
+    PERT($exp);
+}
 
-$i->setNome($exp[0]);
-$i->setDescricao($exp[1]);
-$e->setId($exp[2]);
-$i->setOtimista($exp[3]);
-$i->setMaisProvavel($exp[4]);
-$i->setPessimista($exp[5]);
-$i->setQtdDesvios($exp[6]);
-$m->setId($exp[7]);
-$i->setValorUnitario($exp[8]);
-$c->setId($exp[9]);
-$s->setId($exp[10]);
-$p->setId($exp[11]);
-$i->setIdTemplate($exp[12]);
-$i->setMoeda($m);
-$i->setCategoria($c);
-$i->setSubCategoria($s);
-$i->setPagamento($p);
-$i->setEquipe($e);
+function GI($exp) {
+    $control = new Controller();
+    $i = new Item();
+    $m = new Moeda();
+    $c = new Categoria();
+    $s = new Subcategoria();
+    $p = new Pagamento();
+    $e = new Equipe();
+    $t = new Template();
 
-//$response = $control->process("CREATE", $i);
+    $i->setNome($exp[1]);
+    $i->setDescricao($exp[2]);
+    $e->setId($exp[3]);
+    $i->setOtimista(str_ireplace(',', '.', str_ireplace('.', '', $exp[4])));
+    $i->setMaisProvavel(str_ireplace(',', '.', str_ireplace('.', '', $exp[5])));
+    $i->setPessimista(str_ireplace(',', '.', str_ireplace('.', '', $exp[6])));
+    $i->setQtdDesvios($exp[7]);
+    $m->setId($exp[8]);
+    $i->setValorUnitario(str_ireplace(',', '.', str_ireplace('.', '', $exp[9])));
+    $c->setId($exp[10]);
+    $s->setId($exp[11]);
+    $p->setId($exp[12]);
+    $i->setIdTemplate($exp[13]);
+    $i->setMoeda($m);
+    $i->setCategoria($c);
+    $i->setSubCategoria($s);
+    $i->setPagamento($p);
+    $i->setEquipe($e);
 
-echo '<pre>';
-print_r($i);
-echo '</pre>';
+    //$response = $control->process("CREATE", $i);
 
+    echo 'Item salvo com sucesso!';
+}
+
+function PERT($exp) {
+    $i = new Item();
+    $i->setOtimista(str_ireplace(',', '.', str_ireplace('.', '', $exp[1])));
+    $i->setMaisProvavel(str_ireplace(',', '.', str_ireplace('.', '', $exp[2])));
+    $i->setPessimista(str_ireplace(',', '.', str_ireplace('.', '', $exp[3])));
+    $i->setValorUnitario(str_ireplace(',', '.', str_ireplace('.', '', $exp[4])));
+    echo '<Item>
+            <pert>' . $i->getPert() . '</pert>
+            <desvio>' . $i->getDesvio() . '</desvio>
+            <total>' . $i->getTotal() . '</total>
+          </Item>';
+}

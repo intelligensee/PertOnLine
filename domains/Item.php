@@ -66,6 +66,9 @@ class Item extends Identificacao {
     }
 
     function getMoeda(): Moeda {
+        if(!$this->moeda){
+            return new Moeda();
+        }
         return $this->moeda;
     }
 
