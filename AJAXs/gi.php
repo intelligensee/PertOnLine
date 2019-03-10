@@ -14,8 +14,10 @@ $exp = explode("?", $q);
 
 if ($exp[0] === 'GI') {
     GI($exp);
-} else {
+} else if ($exp[0] === 'PERT') {
     PERT($exp);
+} else if ($exp[0] === 'U') {
+    GIUpDate($exp);
 }
 
 function GI($exp) {
@@ -47,9 +49,15 @@ function GI($exp) {
     $i->setPagamento($p);
     $i->setEquipe($e);
 
-    //$response = $control->process("CREATE", $i);
+    $com = $exp[count($exp) - 1];
+    if ($com === 'C') {
+        $comando = 'CREATE';
+    } else if ($com === 'U') {
+        $comando = 'UPDATE';
+    }
+    //$response = $control->process($comando, $i);
 
-    echo 'Item salvo com sucesso!';
+    echo 'Item salvo com sucesso! -> SÓ QUE NÃO';
 }
 
 function PERT($exp) {
@@ -69,5 +77,31 @@ function PERT($exp) {
             <pert>' . $i->getPert() . '</pert>
             <desvio>' . $i->getDesvio() . '</desvio>
             <total>' . $i->getTotal() . '</total>
+          </Item>';
+}
+
+function GIUpDate($exp) {
+    $control = new Controller();
+    $i = new Item();
+    $i->setId($exp[1]);
+    $read = $control->process("READ", $i);
+    $i = $read[1][0];
+    echo '<Item>
+            <nome>' . $i->getNome() . '</nome>
+            <descricao>' . $i->getDescricao() . '</descricao>
+            <equipe>' . $i->getEquipe()->getId() . '</equipe>
+            <otimista>' . $i->getOtimista() . '</otimista>
+            <maisProvavel>' . $i->getMaisProvavel() . '</maisProvavel>
+            <pessimista>' . $i->getPessimista() . '</pessimista>
+            <pert>' . $i->getPert() . '</pert>
+            <desvio>' . $i->getDesvio() . '</desvio>
+            <qtdDesvios>' . $i->getQtdDesvios() . '</qtdDesvios>
+            <moeda>' . $i->getMoeda()->getId() . '</moeda>
+            <valorUnitario>' . $i->getValorUnitario() . '</valorUnitario>
+            <total>' . $i->getTotal() . '</total>
+            <categoria>' . $i->getCategoria()->getId() . '</categoria>
+            <subCategoria>' . $i->getSubCategoria()->getId() . '</subCategoria>
+            <pagamento>' . $i->getPagamento() . '</pagamento>
+            <template>' . $i->getIdTemplate() . '</template>
           </Item>';
 }

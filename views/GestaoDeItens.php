@@ -69,19 +69,19 @@
                                 <label>Otimista</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getOtimista(), 2, ',', '.') ?> name="GITxtOtimista" id="GITxtOtimista" onchange="execute('PERT')">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getOtimista(), 2, ',', '.') ?> name="GITxtOtimista" id="GITxtOtimista" onchange="execute('PERT?R')">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Mais provável</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getMaisProvavel(), 2, ',', '.') ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel" onchange="execute('PERT')">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getMaisProvavel(), 2, ',', '.') ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel" onchange="execute('PERT?R')">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Pessimista</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getPessimista(), 2, ',', '.') ?> name="GITxtPessimista" id="GITxtPessimista" onchange="execute('PERT')">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getPessimista(), 2, ',', '.') ?> name="GITxtPessimista" id="GITxtPessimista" onchange="execute('PERT?R')">
                             </td>
                         </tr>                        
                         <tr>
@@ -101,7 +101,7 @@
                                 <label>Desvios</label>
                             </td>
                             <td>
-                                <select name="GITxtDesvios" id="GITxtDesvios" onchange="execute('PERT')">
+                                <select name="GITxtDesvios" id="GITxtDesvios" onchange="execute('PERT?R')">
                                     <option value="2">2</option>
                                     <option value="1">1</option>
                                     <option value="0">0</option>
@@ -113,7 +113,7 @@
                                 <label>Moeda</label>
                             </td>
                             <td>
-                                <select name="GITxtMoedas" id="GITxtMoedas" onchange="execute('PERT')">
+                                <select name="GITxtMoedas" id="GITxtMoedas" onchange="execute('PERT?R')">
                                     <?php
                                     $read = $control->process("READ", new Moeda());
                                     foreach ($read[1] as $obj) {
@@ -128,7 +128,7 @@
                                 <label>Valor unitário</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getValorUnitario(), 2, ',', '.') ?> name="GITxtValorUnitario" id="GITxtValorUnitario" onchange="execute('PERT')">
+                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getValorUnitario(), 2, ',', '.') ?> name="GITxtValorUnitario" id="GITxtValorUnitario" onchange="execute('PERT?R')">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Total</label>
@@ -201,7 +201,7 @@
                                 </select>
                             </td>
                             <td colspan="2">
-                                <input class="botoes" type="button" value="Salvar" onclick="execute('GI')">
+                                <input class="botoes" type="button" value="Salvar" onclick="execute('GI?C')">
                             </td>
                         </tr>
                     </table>
@@ -211,47 +211,49 @@
                 <legend>
                     <h3 class="tituloSeccao">Itens cadastrados</h3>
                 </legend>
-                <table class="gestao">
-                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Template associado</th>
-                    <?php
-                    $readItens = $control->process("READ", new Item());
-                    foreach ($readItens[1] as $obj) {
-                        $item = new Item();
-                        $item = $obj;
-                        echo '<tr class = "linhaGestao">
-                              <td>
-                              <a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro" title="?"></a>
-                              <a href = "#"><img class = "icones" src = "../images/icones/editar.png" alt = "Editar cadastro" title="Editar"></a>
-                              <a href = "#"><img class = "icones" src = "../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir"></a>
-                              </td>';
-                        echo '<td>' . $item->getNome() . '</td>';
-                        echo '<td>' . number_format($item->getPert(), 2, ',', '.') . '</td>';
-                        echo '<td>' . number_format($item->getDesvio(), 2, ',', '.') . '</td>';
-                        echo '<td>' . number_format($item->getQtdDesvios(), 2, ',', '.') . '</td>';
-                        echo '<td>' . number_format(($item->getPert() + $item->getDesvio() * $item->getQtdDesvios()), 2, ',', '.') . '</td>';
-                        echo '<td>(' . $item->getMoeda()->getSimbolo() . ') ' . $item->getMoeda()->getNome() . '</td>';
-                        echo '<td>' . number_format($item->getValorUnitario(), 2, ',', '.') . '</td>';
-                        echo '<td>R$ ' . number_format($item->getTotal(), 2, ',', '.') . '</td>';
-                        echo '<td>' . $item->getCategoria()->getNome() . '</td>';
-                        echo '<td>' . $item->getSubCategoria()->getNome() . '</td>';
-                        echo '<td>' . $item->getPagamento()->getNome() . '</td>';
-                        $read = $control->process("READ", new Template());
-                        foreach ($read[1] as $obj) {
-                            $templ = new Template();
-                            $templ = $obj;
-                            foreach ($templ->getItens() as $objI) {
-                                $it = new Item();
-                                $it = $objI;
-                                if ($it->getId() === $item->getId()) {
-                                    echo '<td>' . $templ->getNome() . '</td>';
-                                    break;
+                <form name="formItens" onsubmit="execute()">
+                    <table class="gestao">
+                        <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Template associado</th>
+                        <?php
+                        $readItens = $control->process("READ", new Item());
+                        foreach ($readItens[1] as $obj) {
+                            $item = new Item();
+                            $item = $obj;
+                            echo '<tr class = "linhaGestao">';
+                            echo '<td>';
+                            echo '<a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro" title="?"></a>';
+                            echo '<input type="image" class="icones" src="../images/icones/editar.png" alt = "Editar cadastro" title="Editar" onclick="execute(\'U?' . $item->getId() . '\')"></input>';
+                            echo '<a href = "#"><img class = "icones" src = "../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir"></a>';
+                            echo '</td>';
+                            echo '<td>' . $item->getNome() . '</td>';
+                            echo '<td>' . number_format($item->getPert(), 2, ',', '.') . '</td>';
+                            echo '<td>' . number_format($item->getDesvio(), 2, ',', '.') . '</td>';
+                            echo '<td>' . number_format($item->getQtdDesvios(), 2, ',', '.') . '</td>';
+                            echo '<td>' . number_format(($item->getPert() + $item->getDesvio() * $item->getQtdDesvios()), 2, ',', '.') . '</td>';
+                            echo '<td>(' . $item->getMoeda()->getSimbolo() . ') ' . $item->getMoeda()->getNome() . '</td>';
+                            echo '<td>' . number_format($item->getValorUnitario(), 2, ',', '.') . '</td>';
+                            echo '<td>R$ ' . number_format($item->getTotal(), 2, ',', '.') . '</td>';
+                            echo '<td>' . $item->getCategoria()->getNome() . '</td>';
+                            echo '<td>' . $item->getSubCategoria()->getNome() . '</td>';
+                            echo '<td>' . $item->getPagamento()->getNome() . '</td>';
+                            $read = $control->process("READ", new Template());
+                            foreach ($read[1] as $obj) {
+                                $templ = new Template();
+                                $templ = $obj;
+                                foreach ($templ->getItens() as $objI) {
+                                    $it = new Item();
+                                    $it = $objI;
+                                    if ($it->getId() === $item->getId()) {
+                                        echo '<td>' . $templ->getNome() . '</td>';
+                                        break;
+                                    }
                                 }
                             }
+                            echo '</tr>';
                         }
-                        echo '</tr>';
-                    }
-                    ?>
-                </table>
+                        ?>
+                    </table>
+                </form>
             </fieldset>
         </div>
         <?php include "../rodape.php"; ?>

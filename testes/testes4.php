@@ -7,13 +7,8 @@
     <body>
         <h1>Teste 4</h1>
         <?php
-        require_once '../domains/Item.php';
-        $i = new Item();
-        //$n = str_ireplace('.', '', '1.000,87');
-        $x = str_ireplace(',', '.', str_ireplace('.', '', '1.010,87'));
-        $i->setOtimista($x);
-        echo 'Retorno: ' . $i->getOtimista();
-        
+        $cars = array("Volvo", "BMW", "Toyota");
+        echo $cars[count($cars)-1];
         ?>
     </body>
 </html>
