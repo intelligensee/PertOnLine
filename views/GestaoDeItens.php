@@ -69,19 +69,19 @@
                                 <label>Otimista</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getOtimista(), 2, ',', '.') ?> name="GITxtOtimista" id="GITxtOtimista" onchange="execute('PERT?R')">
+                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getOtimista(), 2, ',', '.') ?> name="GITxtOtimista" id="GITxtOtimista" onchange="execute('PERT?R')">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Mais provável</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getMaisProvavel(), 2, ',', '.') ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel" onchange="execute('PERT?R')">
+                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getMaisProvavel(), 2, ',', '.') ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel" onchange="execute('PERT?R')">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Pessimista</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getPessimista(), 2, ',', '.') ?> name="GITxtPessimista" id="GITxtPessimista" onchange="execute('PERT?R')">
+                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getPessimista(), 2, ',', '.') ?> name="GITxtPessimista" id="GITxtPessimista" onchange="execute('PERT?R')">
                             </td>
                         </tr>                        
                         <tr>
@@ -89,13 +89,13 @@
                                 <label>PERT</label>
                             </td>
                             <td>
-                                <input class="disable" type="number" <?php echo 'value =' . number_format($item->getPert(), 2, ',', '.') ?> disabled name="GITxtPERT" id="GITxtPERT">
+                                <input class="disable" type="text" <?php echo 'value =' . number_format($item->getPert(), 2, ',', '.') ?> disabled name="GITxtPERT" id="GITxtPERT">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvio padrão</label>
                             </td>
                             <td>
-                                <input class="disable" type="number" <?php echo 'value =' . number_format($item->getDesvio(), 2, ',', '.') ?> disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
+                                <input class="disable" type="text" <?php echo 'value =' . number_format($item->getDesvio(), 2, ',', '.') ?> disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Desvios</label>
@@ -128,13 +128,13 @@
                                 <label>Valor unitário</label>
                             </td>
                             <td>
-                                <input class="alinhaCentro" type="number" <?php echo 'value =' . number_format($item->getValorUnitario(), 2, ',', '.') ?> name="GITxtValorUnitario" id="GITxtValorUnitario" onchange="execute('PERT?R')">
+                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getValorUnitario(), 2, ',', '.') ?> name="GITxtValorUnitario" id="GITxtValorUnitario" onchange="execute('PERT?R')">
                             </td>
                             <td class="nomeDosCampos">
                                 <label>Total</label>
                             </td> 
                             <td>
-                                <input class="disable" type="number" <?php echo 'value =' . number_format($item->getTotal(), 2, ',', '.') ?> disabled name="GITxtTotal" id="GITxtTotal">
+                                <input class="disable" type="text" <?php echo 'value =' . number_format($item->getTotal(), 2, ',', '.') ?> disabled name="GITxtTotal" id="GITxtTotal">
                             </td>
                         </tr>
                         <tr>
