@@ -8,9 +8,7 @@ function execute(modo) {
     var xmlhttp = new XMLHttpRequest();
     var parser = new DOMParser();
     var xmlDoc;
-    var pert;
-    var desvio;
-    var total;
+
 
     var listaPERT = [
         'GITxtOtimista', //1
@@ -52,10 +50,8 @@ function execute(modo) {
         query += sep + document.getElementById(valor).value;
     }
 
-
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            //alert(this.responseText);
             if (alvo === 'GI') {//Resposta para GI
                 alert(this.responseText);
             } else if (alvo === 'PERT') {//Resposta para PERT
@@ -63,22 +59,25 @@ function execute(modo) {
                 inserirNumeros(false);
             } else if (alvo === 'U') {
                 xmlDoc = parser.parseFromString(this.responseText, "text/xml");
+                inserirNumeros(true);
                 var nome = xmlDoc.getElementsByTagName("nome")[0].childNodes[0].nodeValue;
                 var descricao = xmlDoc.getElementsByTagName("descricao")[0].childNodes[0].nodeValue;
                 var equipe = xmlDoc.getElementsByTagName("equipe")[0].childNodes[0].nodeValue;
-                var otimista = xmlDoc.getElementsByTagName("otimista")[0].childNodes[0].nodeValue;
-                var maisProvavel = xmlDoc.getElementsByTagName("maisProvavel")[0].childNodes[0].nodeValue;
-                var pessimista = xmlDoc.getElementsByTagName("pessimista")[0].childNodes[0].nodeValue;
-                var pert = xmlDoc.getElementsByTagName("pert")[0].childNodes[0].nodeValue;
-                var desvio = xmlDoc.getElementsByTagName("desvio")[0].childNodes[0].nodeValue;
                 var qtdDesvios = xmlDoc.getElementsByTagName("qtdDesvios")[0].childNodes[0].nodeValue;
                 var moeda = xmlDoc.getElementsByTagName("moeda")[0].childNodes[0].nodeValue;
-                var valorUnitario = xmlDoc.getElementsByTagName("valorUnitario")[0].childNodes[0].nodeValue;
-                var total = xmlDoc.getElementsByTagName("total")[0].childNodes[0].nodeValue;
                 var categoria = xmlDoc.getElementsByTagName("categoria")[0].childNodes[0].nodeValue;
                 var subCategoria = xmlDoc.getElementsByTagName("subCategoria")[0].childNodes[0].nodeValue;
                 var pagamento = xmlDoc.getElementsByTagName("pagamento")[0].childNodes[0].nodeValue;
                 var template = xmlDoc.getElementsByTagName("template")[0].childNodes[0].nodeValue;
+                document.getElementById("GITxtNomeDoItem").value = nome;
+                document.getElementById("GITxtDescricaoDoItem").value = descricao;
+                document.getElementById("GITxtEquipe").value = equipe;
+                document.getElementById("GITxtDesvios").value = qtdDesvios;
+                document.getElementById("GITxtMoedas").value = moeda;
+                document.getElementById("GITxtCategoria").value = categoria;
+                document.getElementById("GITxtSubcategoria").value = subCategoria;
+                document.getElementById("GITxtPagamento").value = pagamento;
+                document.getElementById("GITxtAssociarTemlate").value = template;
             }
         }
         function inserirNumeros(completo) {
@@ -91,9 +90,22 @@ function execute(modo) {
             document.getElementById("GITxtPERT").setAttribute("value", pert);
             document.getElementById("GITxtDesvioPadrao").setAttribute("value", desvio);
             document.getElementById("GITxtTotal").setAttribute("value", total);
+            if (completo) {
+                var otimista = xmlDoc.getElementsByTagName("otimista")[0].childNodes[0].nodeValue;
+                var maisProvavel = xmlDoc.getElementsByTagName("maisProvavel")[0].childNodes[0].nodeValue;
+                var pessimista = xmlDoc.getElementsByTagName("pessimista")[0].childNodes[0].nodeValue;
+                var valorUnitario = xmlDoc.getElementsByTagName("valorUnitario")[0].childNodes[0].nodeValue;
+                otimista = Number(otimista).toFixed(2).replace(".", ",");
+                maisProvavel = Number(maisProvavel).toFixed(2).replace(".", ",");
+                pessimista = Number(pessimista).toFixed(2).replace(".", ",");
+                valorUnitario = Number(valorUnitario).toFixed(2).replace(".", ",");
+                document.getElementById("GITxtOtimista").setAttribute("value", otimista);
+                document.getElementById("GITxtMaisProvavel").setAttribute("value", maisProvavel);
+                document.getElementById("GITxtPessimista").setAttribute("value", pessimista);
+                document.getElementById("GITxtValorUnitario").setAttribute("value", valorUnitario);
+            }
         }
     };
-
 
     xmlhttp.open("GET", "../AJAXs/gi.php?q=" + query, true);
     xmlhttp.send();

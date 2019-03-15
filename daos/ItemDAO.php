@@ -86,7 +86,8 @@ class ItemDAO implements IDAO {
         $sql .= " idSubCategoria, subCategoria.nome as nomeSubCategoria,";
         $sql .= " idMoeda, moeda.nome as nomeMoeda, simbolo, cotacao,";
         $sql .= " idPagamento, pagamento.nome as nomePagamento,";
-        $sql .= " idEquipe, equipe.nome as nomeEquipe";
+        $sql .= " idEquipe, equipe.nome as nomeEquipe,";
+        $sql .= " idTemplate";
         $sql .= " FROM item";
         $sql .= " JOIN templates_itens USING (idItem)";
         $sql .= " JOIN usuario ON (criadoPor = idUsuario)";
@@ -159,6 +160,7 @@ class ItemDAO implements IDAO {
             $a->setId($obj["idEquipe"]);
             $a->setNome($obj["nomeEquipe"]);
             $i->setEquipe($a);
+            $i->setIdTemplate($obj["idTemplate"]);
             $list[] = $i;
         }
         return $list;

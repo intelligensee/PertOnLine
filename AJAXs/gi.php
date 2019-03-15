@@ -86,7 +86,7 @@ function GIUpDate($exp) {
     $i->setId($exp[1]);
     $read = $control->process("READ", $i);
     $i = $read[1][0];
-    echo '<Item>
+    echo '<Item> 
             <nome>' . $i->getNome() . '</nome>
             <descricao>' . $i->getDescricao() . '</descricao>
             <equipe>' . $i->getEquipe()->getId() . '</equipe>
@@ -101,7 +101,7 @@ function GIUpDate($exp) {
             <total>' . $i->getTotal() . '</total>
             <categoria>' . $i->getCategoria()->getId() . '</categoria>
             <subCategoria>' . $i->getSubCategoria()->getId() . '</subCategoria>
-            <pagamento>' . $i->getPagamento() . '</pagamento>
+            <pagamento>' . $i->getPagamento()->getId() . '</pagamento>
             <template>' . $i->getIdTemplate() . '</template>
           </Item>';
 }
