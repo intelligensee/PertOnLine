@@ -52,12 +52,14 @@ function GI($exp) {
     $com = $exp[count($exp) - 1];
     if ($com === 'C') {
         $comando = 'CREATE';
+        $msg = 'Item salvo com sucesso!';
     } else if ($com === 'U') {
         $comando = 'UPDATE';
+        $msg = 'Item alterado com sucesso!';
     }
     //$response = $control->process($comando, $i);
 
-    echo 'Item salvo com sucesso! -> SÓ QUE NÃO';
+    echo $msg . '-> SÓ QUE NÃO';
 }
 
 function PERT($exp) {

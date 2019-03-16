@@ -78,6 +78,9 @@ function execute(modo) {
                 document.getElementById("GITxtSubcategoria").value = subCategoria;
                 document.getElementById("GITxtPagamento").value = pagamento;
                 document.getElementById("GITxtAssociarTemlate").value = template;
+                document.getElementById("GIBtC").hidden = true;
+                document.getElementById("GIBtU").hidden = false;
+                document.getElementById("GIBtCancel").hidden = false;
             }
         }
         function inserirNumeros(completo) {

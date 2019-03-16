@@ -201,7 +201,9 @@
                                 </select>
                             </td>
                             <td colspan="2">
-                                <input class="botoes" type="button" value="Salvar" onclick="execute('GI?C')">
+                                <input class="botoes" type="button" value="Salvar" id="GIBtC" onclick="execute('GI?C')">
+                                <input class="botoes" type="button" value="Salvar Alterações" hidden id="GIBtU" onclick="execute('GI?U')">
+                                <input class="botoes" type="button" value="Cancelar" hidden id="GIBtCancel" onclick="execute()">
                             </td>
                         </tr>
                     </table>
