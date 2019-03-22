@@ -18,6 +18,8 @@ if ($exp[0] === 'GI') {
     PERT($exp);
 } else if ($exp[0] === 'U') {
     GIUpDate($exp);
+} else if ($exp[0] === 'D'){
+    
 }
 
 function GI($exp) {
@@ -106,4 +108,11 @@ function GIUpDate($exp) {
             <pagamento>' . $i->getPagamento()->getId() . '</pagamento>
             <template>' . $i->getIdTemplate() . '</template>
           </Item>';
+}
+
+function GIDelete($exp){
+    $control = new Controller();
+    $i = new Item();
+    $i->setId($exp[1]);
+    $control->process("DELETE", $i);
 }

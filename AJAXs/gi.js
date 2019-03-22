@@ -42,11 +42,11 @@ function execute(modo) {
         query = alvo;
         map[alvo].forEach(criarQuery);
         query += sep + complemento;
-    } else {//outros
+    } else {//outros (U e D)
         query = modo;
     }
 
-    function criarQuery(valor) {
+    function criarQuery(valor) {//apenas para GI e PERT
         query += sep + document.getElementById(valor).value;
     }
 
@@ -54,6 +54,7 @@ function execute(modo) {
         if (this.readyState === 4 && this.status === 200) {
             if (alvo === 'GI') {//Resposta para GI
                 alert(this.responseText);
+                window.location.href = "GestaoDeItens.php";
             } else if (alvo === 'PERT') {//Resposta para PERT
                 xmlDoc = parser.parseFromString(this.responseText, "text/xml");
                 inserirNumeros(false);
@@ -79,6 +80,7 @@ function execute(modo) {
                 document.getElementById("GITxtPagamento").value = pagamento;
                 document.getElementById("GITxtAssociarTemlate").value = template;
                 document.getElementById("GIBtC").hidden = true;
+                document.getElementById("GITdBtC").hidden = true;
                 document.getElementById("GIBtU").hidden = false;
                 document.getElementById("GIBtCancel").hidden = false;
             }

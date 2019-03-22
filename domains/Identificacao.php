@@ -39,7 +39,7 @@ abstract class Identificacao {
         if (!$this->modificadoEm) {
             $this->modificadoEm = new DateTime("now");
             $fuso = new DateTimeZone('America/Sao_Paulo');
-            $this->criadoEm->setTimezone($fuso);
+            $this->modificadoEm->setTimezone($fuso);
         }
         return $this->modificadoEm;
     }

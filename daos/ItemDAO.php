@@ -68,7 +68,22 @@ class ItemDAO implements IDAO {
     }
 
     public function delete($object) {
-        
+        $u = new Usuario();
+        $u = $this->user;
+        $o = new Item();
+        $o = $object;
+        $id = $o->getId();
+        $modificadoEm = $o->getModificadoEm()->format("y-m-d H:m:s");
+        $modificadoPor = $u->getId();
+        $sql = "UPDATE item SET ativo = 0,";
+        $sql .= " modificadoEm = ?, modificadoPor = ?";
+        $sql .= " WHERE idItem = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $modificadoEm);
+        $stmt->bindParam(2, $modificadoPor);
+        $stmt->bindParam(3, $id);
+        $stmt->execute();
+        return true;
     }
 
     public function read($object) {
@@ -77,7 +92,6 @@ class ItemDAO implements IDAO {
         $id = $o->getId();
         $nome = $o->getNome();
         $idTemplate = $o->getIdTemplate();
-        $first = true;
         $sql = "SELECT";
         $sql .= " idItem, item.nome, item.descricao, item.criadoEm, item.criadoPor, item.modificadoEm, item.modificadoPor,";
         $sql .= " idUsuario, nomeUsuario,";
@@ -96,25 +110,16 @@ class ItemDAO implements IDAO {
         $sql .= " JOIN moeda ON (moeda = idMoeda)";
         $sql .= " JOIN pagamento ON (pagamento = idPagamento)";
         $sql .= " JOIN equipe ON (equipe = idEquipe)";
+        $sql .= " WHERE item.ativo = 1";
         if ($id != 0 || !empty($nome) || $idTemplate != 0) {
-            $sql .= " WHERE";
             if ($id != 0) {
-                $sql .= " idItem = " . $id;
-                $first = false;
+                $sql .= " AND idItem = " . $id;
             }
             if (!empty($nome)) {
-                if (!$first) {
-                    $sql .= " AND";
-                }
-                $sql .= " nome = '" . $nome . "'";
-                $first = false;
+                $sql .= " AND nome = '" . $nome . "'";
             }
             if ($idTemplate != 0) {
-                if (!$first) {
-                    $sql .= " AND";
-                }
-                $sql .= " idTemplate = '" . $idTemplate . "'";
-                $first = false;
+                $sql .= " AND idTemplate = '" . $idTemplate . "'";
             }
         }
         $sql .= " GROUP BY idItem";

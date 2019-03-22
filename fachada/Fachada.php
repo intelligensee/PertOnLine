@@ -24,7 +24,7 @@ class fachada implements IFachada {
 
         //Mapa de comandos do objeto Usuario
         $mapUsuario["CREATE"] = $usuarioCreate;
-        
+
         //Mapa Geral de Objetos
         $this->mapObject[get_class(new Usuario())] = $mapUsuario;
     }
@@ -36,7 +36,9 @@ class fachada implements IFachada {
     }
 
     public function delete($object) {
-        $this->executeRules("DELETE", $object);
+        $ret[] = $this->executeRules("DELETE", $object);
+        $ret[] = $this->instanceDAO($object)->delete($object);
+        return $ret;
     }
 
     public function read($object) {
@@ -52,7 +54,7 @@ class fachada implements IFachada {
     }
 
     private function executeRules($command, $object) {
-        error_reporting(0); //não mostra erros para o usuário
+        //error_reporting(0); //não mostra erros para o usuário
         try {//Verifica a existência de regras de negócio para o objeto em $object
             if (!$m = $this->mapObject[get_class($object)]) {
                 throw new Exception; //lança exceção se não houver

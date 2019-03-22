@@ -29,185 +29,187 @@
                 <legend>
                     <h3 class="tituloSeccao">Gestão dos itens</h3>
                 </legend>
-                <form>
-                    <table class="estruturaFormulario">
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Nome do item</label>
-                            </td>
-                            <td colspan="5">
-                                <input type="text" name="GITxtNomeDoItem" id="GITxtNomeDoItem">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Descrição</label>
-                            </td>
-                            <td colspan="5">
-                                <textarea rows="5" cols="30" name="GITxtDescricaoDoItem" id="GITxtDescricaoDoItem"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Equipe</label>
-                            </td>
-                            <td colspan="5">
-                                <select name="GITxtEquipe" id="GITxtEquipe">
-                                    <?php
-                                    $read = $control->process("READ", new Equipe());
-                                    foreach ($read[1] as $obj) {
-                                        $e = new Equipe();
-                                        $e = $obj;
-                                        echo '<option value = ' . $e->getId() . '>' . $e->getNome() . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Otimista</label>
-                            </td>
-                            <td>
-                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getOtimista(), 2, ',', '.') ?> name="GITxtOtimista" id="GITxtOtimista" onchange="execute('PERT?R')">
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Mais provável</label>
-                            </td>
-                            <td>
-                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getMaisProvavel(), 2, ',', '.') ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel" onchange="execute('PERT?R')">
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Pessimista</label>
-                            </td>
-                            <td>
-                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getPessimista(), 2, ',', '.') ?> name="GITxtPessimista" id="GITxtPessimista" onchange="execute('PERT?R')">
-                            </td>
-                        </tr>                        
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>PERT</label>
-                            </td>
-                            <td>
-                                <input class="disable" type="text" <?php echo 'value =' . number_format($item->getPert(), 2, ',', '.') ?> disabled name="GITxtPERT" id="GITxtPERT">
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Desvio padrão</label>
-                            </td>
-                            <td>
-                                <input class="disable" type="text" <?php echo 'value =' . number_format($item->getDesvio(), 2, ',', '.') ?> disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Desvios</label>
-                            </td>
-                            <td>
-                                <select name="GITxtDesvios" id="GITxtDesvios" onchange="execute('PERT?R')">
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                    <option value="0">0</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Moeda</label>
-                            </td>
-                            <td>
-                                <select name="GITxtMoedas" id="GITxtMoedas" onchange="execute('PERT?R')">
-                                    <?php
-                                    $read = $control->process("READ", new Moeda());
-                                    foreach ($read[1] as $obj) {
-                                        $m = new Moeda();
-                                        $m = $obj;
-                                        echo '<option value = ' . $m->getId() . '>(' . $m->getSimbolo() . ') ' . $m->getNome() . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Valor unitário</label>
-                            </td>
-                            <td>
-                                <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getValorUnitario(), 2, ',', '.') ?> name="GITxtValorUnitario" id="GITxtValorUnitario" onchange="execute('PERT?R')">
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Total</label>
-                            </td> 
-                            <td>
-                                <input class="disable" type="text" <?php echo 'value =' . number_format($item->getTotal(), 2, ',', '.') ?> disabled name="GITxtTotal" id="GITxtTotal">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Categoria</label>
-                            </td>
-                            <td>
-                                <select name="GITxtCategoria" id="GITxtCategoria">
-                                    <?php
-                                    $read = $control->process("READ", new Categoria());
-                                    foreach ($read[1] as $obj) {
-                                        $cat = new Categoria();
-                                        $cat = $obj;
-                                        echo '<option value = ' . $cat->getId() . '> ' . $cat->getNome() . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Subcategoria</label>
-                            </td>
-                            <td>
-                                <select name="GITxtSubcategoria" id="GITxtSubcategoria">
-                                    <?php
-                                    $read = $control->process("READ", new Subcategoria());
-                                    foreach ($read[1] as $obj) {
-                                        $scat = new Subcategoria();
-                                        $scat = $obj;
-                                        echo '<option value = ' . $scat->getId() . '> ' . $scat->getNome() . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                            <td class="nomeDosCampos">
-                                <label>Pagamento</label>
-                            </td>
-                            <td>
-                                <select name="GITxtPagamento" id="GITxtPagamento">
-                                    <?php
-                                    $read = $control->process("READ", new Pagamento());
-                                    foreach ($read[1] as $obj) {
-                                        $p = new Subcategoria();
-                                        $p = $obj;
-                                        echo '<option value = ' . $p->getId() . '> ' . $p->getNome() . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="nomeDosCampos">
-                                <label>Associar template</label>
-                            </td>
-                            <td colspan="3">
-                                <select name="GITxtAssociarTemlate" id="GITxtAssociarTemlate">
-                                    <?php
-                                    $read = $control->process("READ", new Template());
-                                    foreach ($read[1] as $obj) {
-                                        $t = new Template();
-                                        $t = $obj;
-                                        echo '<option value = ' . $t->getId() . '> ' . $t->getNome() . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </td>
-                            <td colspan="2">
-                                <input class="botoes" type="button" value="Salvar" id="GIBtC" onclick="execute('GI?C')">
-                                <input class="botoes" type="button" value="Salvar Alterações" hidden id="GIBtU" onclick="execute('GI?U')">
-                                <input class="botoes" type="button" value="Cancelar" hidden id="GIBtCancel" onclick="execute()">
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                <table class="estruturaFormulario">
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Nome do item</label>
+                        </td>
+                        <td colspan="5">
+                            <input type="text" name="GITxtNomeDoItem" id="GITxtNomeDoItem">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Descrição</label>
+                        </td>
+                        <td colspan="5">
+                            <textarea rows="5" cols="30" name="GITxtDescricaoDoItem" id="GITxtDescricaoDoItem"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Equipe</label>
+                        </td>
+                        <td colspan="5">
+                            <select name="GITxtEquipe" id="GITxtEquipe">
+                                <?php
+                                $read = $control->process("READ", new Equipe());
+                                foreach ($read[1] as $obj) {
+                                    $e = new Equipe();
+                                    $e = $obj;
+                                    echo '<option value = ' . $e->getId() . '>' . $e->getNome() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Otimista</label>
+                        </td>
+                        <td>
+                            <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getOtimista(), 2, ',', '.') ?> name="GITxtOtimista" id="GITxtOtimista" onchange="execute('PERT?R')">
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Mais provável</label>
+                        </td>
+                        <td>
+                            <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getMaisProvavel(), 2, ',', '.') ?> name="GITxtMaisProvavel" id="GITxtMaisProvavel" onchange="execute('PERT?R')">
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Pessimista</label>
+                        </td>
+                        <td>
+                            <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getPessimista(), 2, ',', '.') ?> name="GITxtPessimista" id="GITxtPessimista" onchange="execute('PERT?R')">
+                        </td>
+                    </tr>                        
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>PERT</label>
+                        </td>
+                        <td>
+                            <input class="disable" type="text" <?php echo 'value =' . number_format($item->getPert(), 2, ',', '.') ?> disabled name="GITxtPERT" id="GITxtPERT">
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Desvio padrão</label>
+                        </td>
+                        <td>
+                            <input class="disable" type="text" <?php echo 'value =' . number_format($item->getDesvio(), 2, ',', '.') ?> disabled name="GITxtDesvioPadrao" id="GITxtDesvioPadrao">
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Desvios</label>
+                        </td>
+                        <td>
+                            <select name="GITxtDesvios" id="GITxtDesvios" onchange="execute('PERT?R')">
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                                <option value="0">0</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Moeda</label>
+                        </td>
+                        <td>
+                            <select name="GITxtMoedas" id="GITxtMoedas" onchange="execute('PERT?R')">
+                                <?php
+                                $read = $control->process("READ", new Moeda());
+                                foreach ($read[1] as $obj) {
+                                    $m = new Moeda();
+                                    $m = $obj;
+                                    echo '<option value = ' . $m->getId() . '>(' . $m->getSimbolo() . ') ' . $m->getNome() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Valor unitário</label>
+                        </td>
+                        <td>
+                            <input class="alinhaCentro" type="text" <?php echo 'value =' . number_format($item->getValorUnitario(), 2, ',', '.') ?> name="GITxtValorUnitario" id="GITxtValorUnitario" onchange="execute('PERT?R')">
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Total</label>
+                        </td> 
+                        <td>
+                            <input class="disable" type="text" <?php echo 'value =' . number_format($item->getTotal(), 2, ',', '.') ?> disabled name="GITxtTotal" id="GITxtTotal">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Categoria</label>
+                        </td>
+                        <td>
+                            <select name="GITxtCategoria" id="GITxtCategoria">
+                                <?php
+                                $read = $control->process("READ", new Categoria());
+                                foreach ($read[1] as $obj) {
+                                    $cat = new Categoria();
+                                    $cat = $obj;
+                                    echo '<option value = ' . $cat->getId() . '> ' . $cat->getNome() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Subcategoria</label>
+                        </td>
+                        <td>
+                            <select name="GITxtSubcategoria" id="GITxtSubcategoria">
+                                <?php
+                                $read = $control->process("READ", new Subcategoria());
+                                foreach ($read[1] as $obj) {
+                                    $scat = new Subcategoria();
+                                    $scat = $obj;
+                                    echo '<option value = ' . $scat->getId() . '> ' . $scat->getNome() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td class="nomeDosCampos">
+                            <label>Pagamento</label>
+                        </td>
+                        <td>
+                            <select name="GITxtPagamento" id="GITxtPagamento">
+                                <?php
+                                $read = $control->process("READ", new Pagamento());
+                                foreach ($read[1] as $obj) {
+                                    $p = new Subcategoria();
+                                    $p = $obj;
+                                    echo '<option value = ' . $p->getId() . '> ' . $p->getNome() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nomeDosCampos">
+                            <label>Associar template</label>
+                        </td>
+                        <td colspan="3">
+                            <select name="GITxtAssociarTemlate" id="GITxtAssociarTemlate">
+                                <?php
+                                $read = $control->process("READ", new Template());
+                                foreach ($read[1] as $obj) {
+                                    $t = new Template();
+                                    $t = $obj;
+                                    echo '<option value = ' . $t->getId() . '> ' . $t->getNome() . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td colspan="2" id="GITdBtC">
+                            <input class="botoes" type="button" value="Salvar" id="GIBtC" onclick="execute('GI?C')">
+                        </td>
+                        <td colspan="1">
+                            <input class="botoes" type="button" value="Salvar Alterações" hidden id="GIBtU" onclick="execute('GI?U')">
+                        </td>
+                        <td colspan="1">
+                            <input class="botoes" type="button" value="Cancelar" hidden id="GIBtCancel" onclick="window.window.location.href = 'GestaoDeItens.php'">
+                        </td>
+                    </tr>
+                </table>
             </fieldset>
             <fieldset>
                 <legend>
@@ -222,9 +224,9 @@
                         $item = $obj;
                         echo '<tr class = "linhaGestao">';
                         echo '<td>';
-                        echo '<a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro" title="?"></a>';
+                        //echo '<a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro" title="?"></a>';
                         echo '<input type="image" class="icones" src="../images/icones/editar.png" alt = "Editar cadastro" title="Editar" onclick="execute(\'U?' . $item->getId() . '\')"></input>';
-                        echo '<a href = "#"><img class = "icones" src = "../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir"></a>';
+                        echo '<input type="image" class="icones" src="../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir" onclick="execute(\'D?' . $item->getId() . '\')"></input>';
                         echo '</td>';
                         echo '<td>' . $item->getNome() . '</td>';
                         echo '<td>' . number_format($item->getPert(), 2, ',', '.') . '</td>';

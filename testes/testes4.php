@@ -5,10 +5,14 @@
         <title>Página de Testes 4</title>
     </head>
     <body>
-        <h1>Teste 4</h1>
         <?php
-        $cars = array("Volvo", "BMW", "Toyota");
-        echo $cars[count($cars)-1];
+        require_once '../controllers/Controller.php';
+        require_once '../domains/Item.php';
+        $c = new Controller();
+        $i = new Item();
+        $i->setId(4);
+        $c->process("DELETE", $i);
+        
         ?>
     </body>
 </html>
