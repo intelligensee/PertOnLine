@@ -54,7 +54,7 @@ class fachada implements IFachada {
     }
 
     private function executeRules($command, $object) {
-        //error_reporting(0); //não mostra erros para o usuário
+        error_reporting(0); //não mostra erros para o usuário
         try {//Verifica a existência de regras de negócio para o objeto em $object
             if (!$m = $this->mapObject[get_class($object)]) {
                 throw new Exception; //lança exceção se não houver

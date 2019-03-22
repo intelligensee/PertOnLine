@@ -32,7 +32,6 @@ function execute(modo) {
         'GITxtCategoria', //10
         'GITxtSubcategoria', //11
         'GITxtPagamento', //12
-        'GITxtAssociarTemlate'//13
     ];
 
     map["GI"] = listaGI;
@@ -69,7 +68,6 @@ function execute(modo) {
                 var categoria = xmlDoc.getElementsByTagName("categoria")[0].childNodes[0].nodeValue;
                 var subCategoria = xmlDoc.getElementsByTagName("subCategoria")[0].childNodes[0].nodeValue;
                 var pagamento = xmlDoc.getElementsByTagName("pagamento")[0].childNodes[0].nodeValue;
-                var template = xmlDoc.getElementsByTagName("template")[0].childNodes[0].nodeValue;
                 document.getElementById("GITxtNomeDoItem").value = nome;
                 document.getElementById("GITxtDescricaoDoItem").value = descricao;
                 document.getElementById("GITxtEquipe").value = equipe;
@@ -78,7 +76,6 @@ function execute(modo) {
                 document.getElementById("GITxtCategoria").value = categoria;
                 document.getElementById("GITxtSubcategoria").value = subCategoria;
                 document.getElementById("GITxtPagamento").value = pagamento;
-                document.getElementById("GITxtAssociarTemlate").value = template;
                 document.getElementById("GIBtC").hidden = true;
                 document.getElementById("GITdBtC").hidden = true;
                 document.getElementById("GIBtU").hidden = false;

@@ -185,19 +185,10 @@
                     </tr>
                     <tr>
                         <td class="nomeDosCampos">
-                            <label>Associar template</label>
+                            
                         </td>
                         <td colspan="3">
-                            <select name="GITxtAssociarTemlate" id="GITxtAssociarTemlate">
-                                <?php
-                                $read = $control->process("READ", new Template());
-                                foreach ($read[1] as $obj) {
-                                    $t = new Template();
-                                    $t = $obj;
-                                    echo '<option value = ' . $t->getId() . '> ' . $t->getNome() . '</option>';
-                                }
-                                ?>
-                            </select>
+                            
                         </td>
                         <td colspan="2" id="GITdBtC">
                             <input class="botoes" type="button" value="Salvar" id="GIBtC" onclick="execute('GI?C')">
@@ -216,7 +207,7 @@
                     <h3 class="tituloSeccao">Itens cadastrados</h3>
                 </legend>
                 <table class="gestao">
-                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Template associado</th>
+                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th>
                     <?php
                     $readItens = $control->process("READ", new Item());
                     foreach ($readItens[1] as $obj) {
@@ -239,19 +230,6 @@
                         echo '<td>' . $item->getCategoria()->getNome() . '</td>';
                         echo '<td>' . $item->getSubCategoria()->getNome() . '</td>';
                         echo '<td>' . $item->getPagamento()->getNome() . '</td>';
-                        $read = $control->process("READ", new Template());
-                        foreach ($read[1] as $obj) {
-                            $templ = new Template();
-                            $templ = $obj;
-                            foreach ($templ->getItens() as $objI) {
-                                $it = new Item();
-                                $it = $objI;
-                                if ($it->getId() === $item->getId()) {
-                                    echo '<td>' . $templ->getNome() . '</td>';
-                                    break;
-                                }
-                            }
-                        }
                         echo '</tr>';
                     }
                     ?>

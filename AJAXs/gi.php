@@ -106,7 +106,6 @@ function GIUpDate($exp) {
             <categoria>' . $i->getCategoria()->getId() . '</categoria>
             <subCategoria>' . $i->getSubCategoria()->getId() . '</subCategoria>
             <pagamento>' . $i->getPagamento()->getId() . '</pagamento>
-            <template>' . $i->getIdTemplate() . '</template>
           </Item>';
 }
 
