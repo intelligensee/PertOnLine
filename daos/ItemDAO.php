@@ -16,55 +16,7 @@ class ItemDAO implements IDAO {
     }
 
     public function create($object) {
-        $u = new Usuario();
-        $u = $this->user;
-        $o = new Item();
-        $o = $object;
-        $nome = $o->getNome();
-        $descricao = $o->getDescricao();
-        $criadoEm = $o->getCriadoEm()->format("y-m-d H:m:s");
-        $criadoPor = $u->getId();
-        $otimista = $o->getOtimista();
-        $maisProvavel = $o->getMaisProvavel();
-        $pessimista = $o->getPessimista();
-        $qtdDesviso = $o->getQtdDesvios();
-        $valorUnitario = $o->getValorUnitario();
-        $idCategoria = $o->getCategoria()->getId();
-        $idSubCategoria = $o->getSubCategoria()->getId();
-        $idMoeda = $o->getMoeda()->getId();
-        $idPagamento = $o->getPagamento()->getId();
-        $idEquipe = $o->getEquipe()->getId();
-        $idTemplate = $o->getIdTemplate();
-        $sql = "INSERT INTO item VALUES (0, ?, ?, ?, ?, null, null, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $nome);
-        $stmt->bindParam(2, $descricao);
-        $stmt->bindParam(3, $criadoEm);
-        $stmt->bindParam(4, $criadoPor);
-        $stmt->bindParam(5, $otimista);
-        $stmt->bindParam(6, $maisProvavel);
-        $stmt->bindParam(7, $pessimista);
-        $stmt->bindParam(8, $qtdDesviso);
-        $stmt->bindParam(9, $valorUnitario);
-        $stmt->bindParam(10, $idCategoria);
-        $stmt->bindParam(11, $idSubCategoria);
-        $stmt->bindParam(12, $idMoeda);
-        $stmt->bindParam(13, $idPagamento);
-        $stmt->bindParam(14, $idEquipe);
-        $stmt->execute();
-        //Obtem o id do novo item
-        $sql = "SELECT idItem FROM item WHERE nome = '" . $nome . "'";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $rs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $idItem = $rs[0]["idItem"];
-        //Salva o relacionamento com o template associado a este item
-        $sql = "INSERT INTO templates_itens VALUES (?, ?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $idTemplate);
-        $stmt->bindParam(2, $idItem);
-        $stmt->execute();
-        return true;
+        $this->createUpdate($object, true);
     }
 
     public function delete($object) {
@@ -91,7 +43,6 @@ class ItemDAO implements IDAO {
         $o = $object;
         $id = $o->getId();
         $nome = $o->getNome();
-        $idTemplate = $o->getIdTemplate();
         $sql = "SELECT";
         $sql .= " idItem, item.nome, item.descricao, item.criadoEm, item.criadoPor, item.modificadoEm, item.modificadoPor,";
         $sql .= " idUsuario, nomeUsuario,";
@@ -100,10 +51,8 @@ class ItemDAO implements IDAO {
         $sql .= " idSubCategoria, subCategoria.nome as nomeSubCategoria,";
         $sql .= " idMoeda, moeda.nome as nomeMoeda, simbolo, cotacao,";
         $sql .= " idPagamento, pagamento.nome as nomePagamento,";
-        $sql .= " idEquipe, equipe.nome as nomeEquipe,";
-        $sql .= " idTemplate";
+        $sql .= " idEquipe, equipe.nome as nomeEquipe";
         $sql .= " FROM item";
-        $sql .= " JOIN templates_itens USING (idItem)";
         $sql .= " JOIN usuario ON (criadoPor = idUsuario)";
         $sql .= " JOIN categoria ON (categoria = idCategoria)";
         $sql .= " JOIN subCategoria ON (subCategoria = idSubCategoria)";
@@ -111,15 +60,12 @@ class ItemDAO implements IDAO {
         $sql .= " JOIN pagamento ON (pagamento = idPagamento)";
         $sql .= " JOIN equipe ON (equipe = idEquipe)";
         $sql .= " WHERE item.ativo = 1";
-        if ($id != 0 || !empty($nome) || $idTemplate != 0) {
+        if ($id !== 0 || !empty($nome)) {
             if ($id != 0) {
                 $sql .= " AND idItem = " . $id;
             }
             if (!empty($nome)) {
                 $sql .= " AND nome = '" . $nome . "'";
-            }
-            if ($idTemplate != 0) {
-                $sql .= " AND idTemplate = '" . $idTemplate . "'";
             }
         }
         $sql .= " GROUP BY idItem";
@@ -165,14 +111,76 @@ class ItemDAO implements IDAO {
             $a->setId($obj["idEquipe"]);
             $a->setNome($obj["nomeEquipe"]);
             $i->setEquipe($a);
-            $i->setIdTemplate($obj["idTemplate"]);
             $list[] = $i;
         }
         return $list;
     }
 
     public function upDate($object) {
-        
+        $this->createUpdate($object, false);
+    }
+
+    private function createUpdate($object, $isCreate) {
+        $u = new Usuario();
+        $u = $this->user;
+        $o = new Item();
+        $o = $object;
+        $nome = $o->getNome();
+        $descricao = $o->getDescricao();
+        if ($isCreate) {
+            $criadoEm = $o->getCriadoEm()->format("y-m-d H:m:s");
+            $criadoPor = $u->getId();
+        } else {
+            $id = $o->getId();
+            $modificadoEm = $o->getModificadoEm()->format("y-m-d H:m:s");
+            $modificadoPor = $u->getId();
+        }
+        $otimista = $o->getOtimista();
+        $maisProvavel = $o->getMaisProvavel();
+        $pessimista = $o->getPessimista();
+        $qtdDesvios = $o->getQtdDesvios();
+        $valorUnitario = $o->getValorUnitario();
+        $idCategoria = $o->getCategoria()->getId();
+        $idSubCategoria = $o->getSubCategoria()->getId();
+        $idMoeda = $o->getMoeda()->getId();
+        $idPagamento = $o->getPagamento()->getId();
+        $idEquipe = $o->getEquipe()->getId();
+        if ($isCreate) {
+            $sql = "INSERT INTO item VALUES (0, ?, ?, ?, ?, null, null, 1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        } else {
+            $sql = "UPDATE item SET nome = ?, descricao = ?,";
+            $sql .= " modificadoEm = ?, modificadoPor = ?,";
+            $sql .= " otimista = ?, maisProvavel = ?, pessimista = ?,";
+            $sql .= " qtdDesvios = ?, valorUnitario = ?,";
+            $sql .= " categoria = ?, subCategoria = ?,";
+            $sql .= " moeda = ?, pagamento = ?, equipe = ?";
+            $sql .= " WHERE idItem = ?";
+        }
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $nome);
+        $stmt->bindParam(2, $descricao);
+        if ($isCreate) {
+            $stmt->bindParam(3, $criadoEm);
+            $stmt->bindParam(4, $criadoPor);
+        } else {
+            $stmt->bindParam(3, $modificadoEm);
+            $stmt->bindParam(4, $modificadoPor);
+        }
+        $stmt->bindParam(5, $otimista);
+        $stmt->bindParam(6, $maisProvavel);
+        $stmt->bindParam(7, $pessimista);
+        $stmt->bindParam(8, $qtdDesvios);
+        $stmt->bindParam(9, $valorUnitario);
+        $stmt->bindParam(10, $idCategoria);
+        $stmt->bindParam(11, $idSubCategoria);
+        $stmt->bindParam(12, $idMoeda);
+        $stmt->bindParam(13, $idPagamento);
+        $stmt->bindParam(14, $idEquipe);
+        if (!$isCreate) {
+            $stmt->bindParam(15, $id);
+        }
+        $stmt->execute();
+        return true;
     }
 
 }

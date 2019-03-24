@@ -15,7 +15,6 @@ class Item extends Identificacao {
     private $moeda;
     private $pagamento;
     private $equipe;
-    private $idTemplate = 0;
 
     function getOtimista(): float {
         return $this->otimista;
@@ -79,10 +78,6 @@ class Item extends Identificacao {
         return $this->equipe;
     }
 
-    function getIdTemplate() : int {
-        return $this->idTemplate;
-    }
-
     function setOtimista(float $otimista) {
         $this->otimista = $otimista;
     }
@@ -122,9 +117,4 @@ class Item extends Identificacao {
     function setEquipe(Equipe $equipe) {
         $this->equipe = $equipe;
     }
-
-    function setIdTemplate(int $idTemplate) {
-        $this->idTemplate = $idTemplate;
-    }
-
 }

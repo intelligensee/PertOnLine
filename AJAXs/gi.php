@@ -18,7 +18,7 @@ if ($exp[0] === 'GI') {
     PERT($exp);
 } else if ($exp[0] === 'U') {
     GIUpDate($exp);
-} else if ($exp[0] === 'D'){
+} else if ($exp[0] === 'D') {
     
 }
 
@@ -30,7 +30,6 @@ function GI($exp) {
     $s = new Subcategoria();
     $p = new Pagamento();
     $e = new Equipe();
-    $t = new Template();
 
     $i->setNome($exp[1]);
     $i->setDescricao($exp[2]);
@@ -44,7 +43,6 @@ function GI($exp) {
     $c->setId($exp[10]);
     $s->setId($exp[11]);
     $p->setId($exp[12]);
-    $i->setIdTemplate($exp[13]);
     $i->setMoeda($m);
     $i->setCategoria($c);
     $i->setSubCategoria($s);
@@ -52,16 +50,18 @@ function GI($exp) {
     $i->setEquipe($e);
 
     $com = $exp[count($exp) - 1];
+
     if ($com === 'C') {
         $comando = 'CREATE';
         $msg = 'Item salvo com sucesso!';
     } else if ($com === 'U') {
+        $i->setId($exp[13]);
         $comando = 'UPDATE';
         $msg = 'Item alterado com sucesso!';
     }
-    //$response = $control->process($comando, $i);
+    $response = $control->process($comando, $i);
 
-    echo $msg . '-> SÓ QUE NÃO';
+    echo $msg;
 }
 
 function PERT($exp) {
@@ -90,7 +90,8 @@ function GIUpDate($exp) {
     $i->setId($exp[1]);
     $read = $control->process("READ", $i);
     $i = $read[1][0];
-    echo '<Item> 
+    echo '<Item>
+            <id>' . $i->getId() . '</id>
             <nome>' . $i->getNome() . '</nome>
             <descricao>' . $i->getDescricao() . '</descricao>
             <equipe>' . $i->getEquipe()->getId() . '</equipe>
@@ -109,7 +110,7 @@ function GIUpDate($exp) {
           </Item>';
 }
 
-function GIDelete($exp){
+function GIDelete($exp) {
     $control = new Controller();
     $i = new Item();
     $i->setId($exp[1]);

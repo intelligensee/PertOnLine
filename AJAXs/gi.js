@@ -32,7 +32,15 @@ function execute(modo) {
         'GITxtCategoria', //10
         'GITxtSubcategoria', //11
         'GITxtPagamento', //12
+        'GISpanId'//13
     ];
+
+    //alert(document.getElementById("GITxtDescricaoDoItem").value);
+
+    function encode_utf8(s)
+    {
+        return unescape(encodeURIComponent(s));
+    }
 
     map["GI"] = listaGI;
     map["PERT"] = listaPERT;
@@ -46,7 +54,7 @@ function execute(modo) {
     }
 
     function criarQuery(valor) {//apenas para GI e PERT
-        query += sep + document.getElementById(valor).value;
+        query += sep + encode_utf8(document.getElementById(valor).value);
     }
 
     xmlhttp.onreadystatechange = function () {
@@ -60,6 +68,7 @@ function execute(modo) {
             } else if (alvo === 'U') {
                 xmlDoc = parser.parseFromString(this.responseText, "text/xml");
                 inserirNumeros(true);
+                var id = xmlDoc.getElementsByTagName("id")[0].childNodes[0].nodeValue;
                 var nome = xmlDoc.getElementsByTagName("nome")[0].childNodes[0].nodeValue;
                 var descricao = xmlDoc.getElementsByTagName("descricao")[0].childNodes[0].nodeValue;
                 var equipe = xmlDoc.getElementsByTagName("equipe")[0].childNodes[0].nodeValue;
@@ -68,6 +77,7 @@ function execute(modo) {
                 var categoria = xmlDoc.getElementsByTagName("categoria")[0].childNodes[0].nodeValue;
                 var subCategoria = xmlDoc.getElementsByTagName("subCategoria")[0].childNodes[0].nodeValue;
                 var pagamento = xmlDoc.getElementsByTagName("pagamento")[0].childNodes[0].nodeValue;
+                document.getElementById("GISpanId").value = id;
                 document.getElementById("GITxtNomeDoItem").value = nome;
                 document.getElementById("GITxtDescricaoDoItem").value = descricao;
                 document.getElementById("GITxtEquipe").value = equipe;
@@ -80,6 +90,8 @@ function execute(modo) {
                 document.getElementById("GITdBtC").hidden = true;
                 document.getElementById("GIBtU").hidden = false;
                 document.getElementById("GIBtCancel").hidden = false;
+                document.getElementById("GITxtNomeDoItem").focus();
+                window.scrollTo(0, 0);
             }
         }
         function inserirNumeros(completo) {

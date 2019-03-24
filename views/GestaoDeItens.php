@@ -24,7 +24,7 @@
         ?>
         <?php include "../menu.php"; ?>
         <div class="conteudo">
-            <span id="retorno"></span>
+            <span id="GISpanId" hidden></span>
             <fieldset>
                 <legend>
                     <h3 class="tituloSeccao">Gestão dos itens</h3>
@@ -207,7 +207,7 @@
                     <h3 class="tituloSeccao">Itens cadastrados</h3>
                 </legend>
                 <table class="gestao">
-                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th>
+                    <th>Opção</th><th>Nome do item</th><th>PERT</th><th>Desvio Padrão</th><th>Desvios</th><th>PERT + Desvios</th><th>Moeda</th><th>Valor unitário</th><th>Total</th><th>Categoria</th><th>Subcategoria</th><th>Pagamento</th><th>Equipe</th>
                     <?php
                     $readItens = $control->process("READ", new Item());
                     foreach ($readItens[1] as $obj) {
@@ -215,7 +215,6 @@
                         $item = $obj;
                         echo '<tr class = "linhaGestao">';
                         echo '<td>';
-                        //echo '<a href = "#"><img class = "icones" src = "../images/icones/ver.png" alt = "Visualizar cadastro" title="?"></a>';
                         echo '<input type="image" class="icones" src="../images/icones/editar.png" alt = "Editar cadastro" title="Editar" onclick="execute(\'U?' . $item->getId() . '\')"></input>';
                         echo '<input type="image" class="icones" src="../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir" onclick="execute(\'D?' . $item->getId() . '\')"></input>';
                         echo '</td>';
@@ -230,6 +229,7 @@
                         echo '<td>' . $item->getCategoria()->getNome() . '</td>';
                         echo '<td>' . $item->getSubCategoria()->getNome() . '</td>';
                         echo '<td>' . $item->getPagamento()->getNome() . '</td>';
+                        echo '<td>' . $item->getEquipe()->getNome() . '</td>';
                         echo '</tr>';
                     }
                     ?>
