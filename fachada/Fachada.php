@@ -11,6 +11,8 @@ require_once '../daos/PagamentoDAO.php';
 require_once '../daos/ItemDAO.php';
 require_once '../daos/TemplateDAO.php';
 require_once '../daos/EquipeDAO.php';
+require_once '../strategies/verificarNome.php';
+require_once '../strategies/verificarDescricao.php';
 
 class fachada implements IFachada {
 
@@ -18,20 +20,28 @@ class fachada implements IFachada {
 
     function __construct() {
         //Lista de regras para CREATE da classe Usuario
-        $usuarioCreate[] = "Regra 1";
-        $usuarioCreate[] = "Regra 2";
-        $usuarioCreate[] = "Regra 3";
+        $usuarioCreate[] = new verificarNome();
+
+        //Lista de regras para CREATE da classe Item
+        $itemCreate[] = new verificarNome();
+        $itemCreate[] = new verificarDescricao();
 
         //Mapa de comandos do objeto Usuario
         $mapUsuario["CREATE"] = $usuarioCreate;
 
+        //Mapa de comandos do objeto Item
+        $mapItem["CREATE"] = $itemCreate;
+
         //Mapa Geral de Objetos
         $this->mapObject[get_class(new Usuario())] = $mapUsuario;
+        $this->mapObject[get_class(new Item())] = $mapItem;
     }
 
     public function create($object) {
         $ret[] = $this->executeRules("CREATE", $object);
-        $ret[] = $this->instanceDAO($object)->create($object);
+        if (empty($ret[0])) {
+            $ret[] = $this->instanceDAO($object)->create($object);
+        }
         return $ret;
     }
 
@@ -54,6 +64,7 @@ class fachada implements IFachada {
     }
 
     private function executeRules($command, $object) {
+        $verif = null;
         error_reporting(0); //não mostra erros para o usuário
         try {//Verifica a existência de regras de negócio para o objeto em $object
             if (!$m = $this->mapObject[get_class($object)]) {
@@ -64,11 +75,15 @@ class fachada implements IFachada {
             }
             //Executa as regras de negócio para o objeto $object e o comando $command
             foreach ($r as $rules) {
-                $ret[] = $rules;
+                if (!empty($verif)) {
+                    $verif .= '?' . $rules->verificar($object);
+                } else {
+                    $verif = $rules->verificar($object);
+                }
             }
-            return $ret;
+            return $verif;
         } catch (Exception $ex) {
-            return 'Não há regras de negócio para esse comando e objeto!';
+            return null;
         }
     }
 

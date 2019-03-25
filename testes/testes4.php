@@ -6,13 +6,16 @@
     </head>
     <body>
         <?php
-        require_once '../controllers/Controller.php';
+        require_once '../strategies/verificarNome.php';
         require_once '../domains/Item.php';
-        $c = new Controller();
         $i = new Item();
-        $i->setId(4);
-        $c->process("DELETE", $i);
-        
+        $v = new verificarNome();
+        $v->verificar($i);
+        $teste = "A";
+        if(!empty($teste)){
+            $teste .= '?' . $teste;
+            echo $teste;
+        }
         ?>
     </body>
 </html>

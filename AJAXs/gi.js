@@ -8,7 +8,12 @@ function execute(modo) {
     var xmlhttp = new XMLHttpRequest();
     var parser = new DOMParser();
     var xmlDoc;
-
+    
+    if(alvo === "D"){//Delete
+        if(!confirm("Deseja realmente excluir o item \"" + array[2] + "\"?")){
+            return;
+        }
+    }
 
     var listaPERT = [
         'GITxtOtimista', //1
@@ -35,8 +40,6 @@ function execute(modo) {
         'GISpanId'//13
     ];
 
-    //alert(document.getElementById("GITxtDescricaoDoItem").value);
-
     function encode_utf8(s)
     {
         return unescape(encodeURIComponent(s));
@@ -59,7 +62,7 @@ function execute(modo) {
 
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
-            if (alvo === 'GI') {//Resposta para GI
+            if (alvo === 'GI' || alvo === 'D') {//Resposta para GI ou Delete
                 alert(this.responseText);
                 window.location.href = "GestaoDeItens.php";
             } else if (alvo === 'PERT') {//Resposta para PERT

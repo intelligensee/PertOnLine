@@ -19,7 +19,7 @@ if ($exp[0] === 'GI') {
 } else if ($exp[0] === 'U') {
     GIUpDate($exp);
 } else if ($exp[0] === 'D') {
-    
+    GIDelete($exp);
 }
 
 function GI($exp) {
@@ -61,7 +61,11 @@ function GI($exp) {
     }
     $response = $control->process($comando, $i);
 
-    echo $msg;
+    if (empty($response[0])) {
+        echo $msg;
+    } else {
+        echo $response[0];
+    }
 }
 
 function PERT($exp) {
@@ -115,4 +119,5 @@ function GIDelete($exp) {
     $i = new Item();
     $i->setId($exp[1]);
     $control->process("DELETE", $i);
+    echo 'Item excluído com sucesso!';
 }

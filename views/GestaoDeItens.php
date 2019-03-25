@@ -185,10 +185,10 @@
                     </tr>
                     <tr>
                         <td class="nomeDosCampos">
-                            
+
                         </td>
                         <td colspan="3">
-                            
+
                         </td>
                         <td colspan="2" id="GITdBtC">
                             <input class="botoes" type="button" value="Salvar" id="GIBtC" onclick="execute('GI?C')">
@@ -197,7 +197,7 @@
                             <input class="botoes" type="button" value="Salvar Alterações" hidden id="GIBtU" onclick="execute('GI?U')">
                         </td>
                         <td colspan="1">
-                            <input class="botoes" type="button" value="Cancelar" hidden id="GIBtCancel" onclick="window.window.location.href = 'GestaoDeItens.php'">
+                            <input class="botoes" type="button" value="Cancelar" hidden id="GIBtCancel" onclick="window.location.href = 'GestaoDeItens.php'">
                         </td>
                     </tr>
                 </table>
@@ -216,7 +216,7 @@
                         echo '<tr class = "linhaGestao">';
                         echo '<td>';
                         echo '<input type="image" class="icones" src="../images/icones/editar.png" alt = "Editar cadastro" title="Editar" onclick="execute(\'U?' . $item->getId() . '\')"></input>';
-                        echo '<input type="image" class="icones" src="../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir" onclick="execute(\'D?' . $item->getId() . '\')"></input>';
+                        echo '<input type="image" class="icones" src="../images/icones/excluir.png" alt = "Excluir cadastro" title="Excluir" onclick="execute(\'D?' . $item->getId() . '?' . $item->getNome() . '\')"></input>';
                         echo '</td>';
                         echo '<td>' . $item->getNome() . '</td>';
                         echo '<td>' . number_format($item->getPert(), 2, ',', '.') . '</td>';
