@@ -62,8 +62,10 @@ function GI($exp) {
     $response = $control->process($comando, $i);
 
     if (empty($response[0])) {
+        $msg = 'OK?' . $msg;
         echo $msg;
     } else {
+        $response[0] = 'ERROS?' . $response[0];
         echo $response[0];
     }
 }
@@ -119,5 +121,5 @@ function GIDelete($exp) {
     $i = new Item();
     $i->setId($exp[1]);
     $control->process("DELETE", $i);
-    echo 'Item excluído com sucesso!';
+    echo 'OK?Item excluído com sucesso!';
 }

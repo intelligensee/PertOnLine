@@ -36,6 +36,7 @@
                         </td>
                         <td colspan="5">
                             <input type="text" name="GITxtNomeDoItem" id="GITxtNomeDoItem">
+                            <label id="GILabelErroNome" style="color: red"></label>
                         </td>
                     </tr>
                     <tr>
@@ -44,6 +45,7 @@
                         </td>
                         <td colspan="5">
                             <textarea rows="5" cols="30" name="GITxtDescricaoDoItem" id="GITxtDescricaoDoItem"></textarea>
+                            <label id="GILabelErroDescricao" style="color: red"></label>
                         </td>
                     </tr>
                     <tr>

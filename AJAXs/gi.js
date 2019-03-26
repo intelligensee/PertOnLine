@@ -8,9 +8,9 @@ function execute(modo) {
     var xmlhttp = new XMLHttpRequest();
     var parser = new DOMParser();
     var xmlDoc;
-    
-    if(alvo === "D"){//Delete
-        if(!confirm("Deseja realmente excluir o item \"" + array[2] + "\"?")){
+
+    if (alvo === "D") {//Delete
+        if (!confirm("Deseja realmente excluir o item \"" + array[2] + "\"?")) {
             return;
         }
     }
@@ -63,8 +63,21 @@ function execute(modo) {
     xmlhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             if (alvo === 'GI' || alvo === 'D') {//Resposta para GI ou Delete
-                alert(this.responseText);
-                window.location.href = "GestaoDeItens.php";
+                var array = this.responseText.split("?");
+                if (array[0] === 'ERROS') {
+                    var mapaErros = [];
+                    mapaErros['ErroNome01'] = ['GILabelErroNome', 'O nome é obrigatório!'];
+                    mapaErros['ErroDescricao01'] = ['GILabelErroDescricao', 'A descrição é obrigatória!'];
+                    for (i = 1; i < array.length; i++) {
+                        var elemento = mapaErros[array[i]][0];
+                        var mensagem = mapaErros[array[i]][1];
+                        document.getElementById(elemento).innerHTML = mensagem;
+                        window.scrollTo(0, 0);
+                    }
+                } else {
+                    alert(array[1]);
+                    window.location.href = "GestaoDeItens.php";
+                }
             } else if (alvo === 'PERT') {//Resposta para PERT
                 xmlDoc = parser.parseFromString(this.responseText, "text/xml");
                 inserirNumeros(false);
